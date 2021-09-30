@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Drawing;
+using System.Web.UI.HtmlControls;
+
+namespace shopMobileOnline.KH
+{
+    public partial class KHDangNhap : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["usernameKH"] != null && Request.Cookies["passwordKH"] != null)
+                {
+                    txtTenDangNhap.Text = Request.Cookies["usernameKH"].Value;
+                    txtMatKhau.Attributes["value"] = Request.Cookies["passwordKH"].Value;
+
+                    cbGhiNho.Checked = true;
+                }
+
+            }
+        }
+
+        protected void btnDangNhap_Click(object sender, EventArgs e)
+        {       
+            bool isCaptchaValid = false;
+            if (Session["CaptchaText"] != null && Session["CaptchaText"].ToString() == txtCaptchaText.Text)
+            {
+                isCaptchaValid = true;
+            }
+            if (isCaptchaValid)
+            {
+                lblMessage.Text = "Captcha Validation Success";
+                lblMessage.ForeColor = Color.Green;
+                DataAccess dataAccess = new DataAccess();
+                dataAccess.MoKetNoiCSDL();
+
+                //thuc thi proc nho sqlcommand cmd
+                SqlCommand cmd = new SqlCommand("KiemTraDangNhapKH", dataAccess.getConnection());
+                cmd.Parameters.AddWithValue("TENDANGNHAP", txtTenDangNhap.Text);
+                cmd.Parameters.AddWithValue("MATKHAU", txtMatKhau.Text);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //show data lay duoc trong datatable
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmd.ExecuteNonQuery();
+
+                dataAccess.DongKetNoiCSDL();
+
+                //lay ket qua trong dt de doi chieu
+                if (dt.Rows.Count > 0)
+                {
+                    //Ghi nho dang nhap
+                    if (cbGhiNho.Checked)
+                    {
+                        //Dung cookies
+                        Response.Cookies["usernameKH"].Value = txtTenDangNhap.Text;
+                        Response.Cookies["passwordKH"].Value = txtMatKhau.Text;
+
+                        //Thoi gian ghi nho
+                        Response.Cookies["usernameKH"].Expires = DateTime.Now.AddMinutes(60);
+                        Response.Cookies["passwordKH"].Expires = DateTime.Now.AddMinutes(60);
+
+                    }
+                    else
+                    {
+                        Response.Cookies["usernameKH"].Expires = DateTime.Now;
+                        Response.Cookies["passwordKH"].Expires = DateTime.Now;
+                    }
+
+                    Session["userKH"] = txtTenDangNhap.Text;
+                    Response.Redirect("KHTrangChu.aspx");
+                    Session.RemoveAll();
+                }
+                else
+                {
+                    lbThongBao.Text = "Sai tên đăng nhập hoặc mật khẩu";
+                }
+            }
+            else
+            {
+
+                //lblMessage.Text = "Sai mã Captcha";
+                //lblMessage.ForeColor = Color.Red;
+                containerpu.Style.Add("display", "block");
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string clientid = "294304503360-1r37p7pcl022fnarjeldackdm13hanb4.apps.googleusercontent.com";
+            string clientsecret = "Z9GF0FFKvfuKdkFT9XAYKH2Y";
+            string redirection_url = "http://localhost:53508/KH/KHTrangChu.aspx";
+            string url = "https://accounts.google.com/o/oauth2/v2/auth?scope=profile&include_granted_scopes=true&redirect_uri=" + redirection_url + "&response_type=code&client_id=" + clientid + "";
+            Response.Redirect(url);
+        }
+    }
+}
