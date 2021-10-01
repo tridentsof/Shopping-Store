@@ -57,13 +57,13 @@ namespace shopMobileOnline.Admin
                     table.Append("<td class=\"table-td table-item\">" + dr["ID_DONHANG"] + "</td>");
                     table.Append("<td class=\"table-td table-item\">" + dr["NGAYDH"] + "</td>");
                     table.Append("<td class=\"table-td table-item\">" + dr["TONGSL"] + "</td>");
-                   
+
                     table.Append("<td class=\"table-td table-item\">" + String.Format("{0:N0}", int.Parse(dr["TONGTIEN"].ToString())) + "</td>");
-        
+
                     table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/ADChiTietDonHang.aspx?t=3&idDH=" + dr["ID_DONHANG"] + "\" class=\"qldh-btnXem\">Xem</a> </td>");
                 }
 
-                Panel1.Controls.Add(new Label{ Text = table.ToString()});
+                Panel1.Controls.Add(new Label { Text = table.ToString() });
 
                 dataAccess.DongKetNoiCSDL();
             }

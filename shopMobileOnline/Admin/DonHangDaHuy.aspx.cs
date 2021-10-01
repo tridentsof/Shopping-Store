@@ -35,6 +35,7 @@ namespace shopMobileOnline.Admin
                         int trangThai = int.Parse(dr["TRANGTHAI"].ToString());
 
                         table.Append("<tr class=\"table-tr\">");
+
                         table.Append("<td class=\"table-td table-item\">" + dr["ID_DONHANG"] + "</td>");
                         table.Append("<td class=\"table-td table-item\">" + dr["NGAYDH"] + "</td>");
                         table.Append("<td class=\"table-td table-item\">" + dr["TONGSL"] + "</td>");
