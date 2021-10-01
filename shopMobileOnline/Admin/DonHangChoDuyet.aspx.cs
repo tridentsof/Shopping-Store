@@ -13,6 +13,7 @@ namespace shopMobileOnline.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["id"] == null)
             {
                 Response.Redirect("ADLogin.aspx");
@@ -43,7 +44,7 @@ namespace shopMobileOnline.Admin
                         table.Append("<td class=\"table-td table-item\">" + String.Format("{0:N0}", int.Parse(dr["TONGTIEN"].ToString())) + "</td>");
                         table.Append("<td class=\"table-td table-item\">" + dr["HIENTHI_TRANGTHAI"] + "</td>");
                         table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/ADChiTietDonHang.aspx?t=1&idDH=" + dr["ID_DONHANG"] + "\" class=\"qldh-btnXem\">Chi tiết</a> </td>");
-                        
+
                     }
 
                 }

@@ -9,7 +9,7 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
 
-    <style>
+     <style>
         
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -68,7 +68,7 @@
         .header {
             position: fixed;
             width: 100%;
-            background-color: #e77f67;
+            background-color: #24e0dd;
             height: 50px;
             z-index: 999;
             padding-right: 10px;
@@ -81,7 +81,7 @@
             width: 200px;
             height: 100%;
             margin-left: 0px;
-            background-color: #f19066;
+            background-color: #37c5cc;
         }
 
         a.text {
@@ -337,9 +337,9 @@
         <div class="header">
             <div class="logo">
                 <a href="ADTrangChu.aspx" class="text">
-                    <b>Admin</b> MURE
-                </a>
-            </div>
+                    <b>Admin</b> MURE</a><br />
+                <a href="ADTrangChu.aspx" class="text">
+                    &nbsp;</a></div>
             <div class="notification">
                 <ul>
                     <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><i class="far fa-envelope"></i></a></li>
@@ -381,13 +381,7 @@
                             <a href="../KH/KHTrangChu.aspx" class="btn">Trang khách hàng <i class="fas fa-mouse-pointer"></i></a>
                        </li>
 
-                        <li class="sub" id="dm">
-                            <a href="#dm" class="btn">Quản lí Danh Mục <i class="fas fa-caret-down"></i></a>
-                            <div class="smenu">
-                                <a href="QLYDanhMuc.aspx">Thêm, xóa Danh Mục</a>
-                            </div>
-                        </li>
-                           <li class="sub" id="sp">
+                        <li class="sub" id="sp">
                             <a href="#sp" class="btn">Quản lí Sản Phẩm <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">
                                 <a href="QLSanPham.aspx">Thêm, xóa Sản Phẩm</a>
@@ -414,6 +408,7 @@
                             <div class="smenu">
                                 <a href="DonHangChoDuyet.aspx">Đơn hàng chờ duyệt</a>
                                 <a href="DonHangDaHuy.aspx">Đơn hàng đã hủy</a>
+                                <a href="DonHangChoThanhToan.aspx">Đơn hàng chờ thanh toán</a>
                                 <a href="DonHangThanhCong.aspx">Đơn hàng thành công</a>
                             </div>
                         </li>
