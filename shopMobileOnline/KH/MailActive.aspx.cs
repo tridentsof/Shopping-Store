@@ -49,14 +49,14 @@ namespace shopMobileOnline.KH
         }
         private void changestatus()
         {
-            String mycon = "Data Source = DESKTOP-7ETUE6K; Initial Catalog=SHOPMOBILE;Integrated Security=true";
-            String updatedata = "Update TAIKHOAN set status='Verified' where EMAIL='" + Request.QueryString["emailadd"] + "'";
-            SqlConnection con = new SqlConnection(mycon);
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = updatedata;
-            cmd.Connection = con;
+            //Lam lai ham changestatus
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.MoKetNoiCSDL();
+            SqlCommand cmd = new SqlCommand("change_status", dataAccess.getConnection());
+            cmd.Parameters.AddWithValue("@EMAIL", Request.QueryString["emailadd"]);
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.ExecuteNonQuery();
+            dataAccess.DongKetNoiCSDL();
         }
     }
 }
