@@ -138,10 +138,64 @@
         #lbThongBao {
             text-align: center;
         }
+        }
+       .txtInput {
+            border: solid 2px;
+            border-radius: 5px;
+            border-color: black;
+            transition: 0.2s;
+        }
+       .txtInput:focus{
+           border: solid 3px;
+           transform: scale(1.05);
+           border-color: #B2D426;   
+       }
+       .container-popup{
+    width: 100%;
+    height: 730px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.473);
+    display: none;
+    top:0;
+}
+.popup{
+    width: 300px;
+    height: 170px;
+    background-color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16%;
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgb(75, 75, 75);
+}
+.x-icon{
+    font-size: 35px;
+    margin-left: 45%;
+    margin-top: 40px;
+    color: #a9ca25;
+}
+.text-popup{
+    font-weight: 600;
+    color: rgb(97, 97, 97);
+    margin-left: 28%;
+    margin-top: 30px;
+}                                      
+.active{
+    display: block;
+}
+        .forquit {
+            display: none!important;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div id="containerpu" class="container-popup" runat="server">
+        <div class="popup">
+            <i class="far fa-times-circle x-icon"></i>
+            <p class="text-popup">SAI MÃ CAPTCHA</p>
+        </div>
+    </div>
         <div class="adlogin-container">
             <!--<p style="text-align: center; font-size: 30px; font-weight: bold; color: #262626; margin-bottom: 20px">Đăng nhập dành cho Admin</p>
             -->
@@ -172,6 +226,10 @@
 
                             </div>
                         </div>
+                        <div class="content-item content-txt">
+                            <asp:Image ID="imgCaptcha" CssClass="content-txt" runat="server" ImageUrl="~/CaptchaImage.aspx" />
+                            <asp:TextBox ID="txtCaptchaText" CssClass="content-txt txtInput" runat="server" Width="100px" />
+                        </div>
                         <div class="content-item content-checkbox">
                             <asp:CheckBox ID="cbGhiNho" runat="server" />
                             <p>Ghi nhớ đăng nhập</p>
@@ -184,5 +242,15 @@
             </div>
         </div>
     </form>
+     <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var background = document.querySelector('.container-popup');
+
+                background.addEventListener('click', function () {
+                    background.classList.remove('active');
+                    background.classList.add('forquit');
+                })
+            })
+     </script>
 </body>
 </html>

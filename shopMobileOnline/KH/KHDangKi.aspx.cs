@@ -6,11 +6,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Net.Mail;
 
 namespace shopMobileOnline.KH
 {
     public partial class DangKi : System.Web.UI.Page
     {
+        static String activationcode;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +28,10 @@ namespace shopMobileOnline.KH
             }
             if (isCaptchaValid)
             {
+                //Tri code gui ma xac nhan qua Email
+                Random random = new Random();
+                activationcode = random.Next(1001,9999).ToString().Trim();
+
                 DataAccess dataAccess = new DataAccess();
                 dataAccess.MoKetNoiCSDL();
 
@@ -37,34 +44,19 @@ namespace shopMobileOnline.KH
                 cmd.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@DIACHI", txtDiaChi.Text);
                 cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
+                cmd.Parameters.AddWithValue("@STATUS", "Unverified");
+                cmd.Parameters.AddWithValue("@ACTIVATIONCODE",activationcode.Trim());
                 cmd.Parameters.Add("@ERROR", SqlDbType.NVarChar, 500);
                 cmd.Parameters["@ERROR"].Direction = ParameterDirection.Output;
                 int a = cmd.ExecuteNonQuery();
+                
 
                 //co the thu int a = cmd.ExecuteNonQuery(); de check so row effected
                 if (a > 0)
                 {
+                    sendcode();
                     lbThongBao.Text = cmd.Parameters["@ERROR"].Value.ToString();
-
-                    if (cbGhiNho.Checked)
-                    {
-                        Response.Cookies["usernameKH"].Value = txtTenDangNhap.Text;
-                        Response.Cookies["passwordKH"].Value = txtMatKhau.Text;
-
-                        //Thoi gian ghi nho
-                        Response.Cookies["usernameKH"].Expires = DateTime.Now.AddMinutes(15);
-                        Response.Cookies["passwordKH"].Expires = DateTime.Now.AddMinutes(15);
-
-                    }
-                    else
-                    {
-                        Response.Cookies["usernameKH"].Expires = DateTime.Now;
-                        Response.Cookies["passwordKH"].Expires = DateTime.Now;
-                    }
-
-                    Session["userKH"] = txtTenDangNhap.Text;
-                    Response.Redirect("KHTrangChu.aspx");
-                    Session.RemoveAll();
+                    Response.Redirect("MailActive.aspx?emailadd="+txtEmail.Text);
 
                 }
                 else
@@ -74,12 +66,35 @@ namespace shopMobileOnline.KH
             }
             else
             {
-                //lblMessage.Text = "Sai mã Captcha";
-                //lblMessage.ForeColor = Color.Red;
                 containerpu.Style.Add("display", "block");
             }
             
 
+        }
+
+        //Tri code ham gui ma xac nhan qua Email
+        private void sendcode()
+        {
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.Credentials = new System.Net.NetworkCredential("proxgroupcdio4@gmail.com","Prox123456");
+            smtp.EnableSsl = true;
+            MailMessage msg = new MailMessage();
+            msg.Subject = "Xác nhận email của bạn";
+            msg.Body = "Chào " + txtEmail.Text + ", Mã xác nhận của bạn là: " + activationcode + " cảm ơn bạn đã đăng ký!";
+            string toaddress = txtEmail.Text;
+            msg.To.Add(toaddress);
+            string fromaddress = "From ProXGroup <proxgroupcdio4@gmail.com>";
+            msg.From = new MailAddress(fromaddress);
+            try
+            {
+                smtp.Send(msg);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }
