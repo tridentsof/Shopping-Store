@@ -14,6 +14,8 @@ namespace shopMobileOnline.admin
 {
     public partial class TrangDanhSachSP : System.Web.UI.Page
     {
+        //Tri code login with Google
+        //Van chua xong vi chua get duoc session KH tu` googleOAuth
         string clientid = "294304503360-1r37p7pcl022fnarjeldackdm13hanb4.apps.googleusercontent.com";
         string clientsecret = "Z9GF0FFKvfuKdkFT9XAYKH2Y";
         string redirection_url = "http://localhost:53508/KH/KHTrangChu.aspx";

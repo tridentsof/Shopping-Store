@@ -37,8 +37,6 @@ namespace shopMobileOnline.KH
             }
             if (isCaptchaValid)
             {
-                lblMessage.Text = "Captcha Validation Success";
-                lblMessage.ForeColor = Color.Green;
                 DataAccess dataAccess = new DataAccess();
                 dataAccess.MoKetNoiCSDL();
 
@@ -81,21 +79,22 @@ namespace shopMobileOnline.KH
                     Session["userKH"] = txtTenDangNhap.Text;
                     Response.Redirect("KHTrangChu.aspx");
                     Session.RemoveAll();
-                }
+
+                   
+                }      
                 else
                 {
-                    lbThongBao.Text = "Sai tên đăng nhập hoặc mật khẩu";
-                }
+                    lbThongBao.Text = "Đăng nhập thất bại";
+                }      
+
             }
             else
             {
-
-                //lblMessage.Text = "Sai mã Captcha";
-                //lblMessage.ForeColor = Color.Red;
                 containerpu.Style.Add("display", "block");
             }
         }
 
+        //Tri code login with Google
         protected void Button1_Click(object sender, EventArgs e)
         {
             string clientid = "294304503360-1r37p7pcl022fnarjeldackdm13hanb4.apps.googleusercontent.com";

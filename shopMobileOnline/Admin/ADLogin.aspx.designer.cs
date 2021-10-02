@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shopMobileOnline.Admin {
-    
-    
-    public partial class ADLogin {
-        
+namespace shopMobileOnline.Admin
+{
+
+
+    public partial class ADLogin
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,16 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
+        /// <summary>
+        /// containerpu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerpu;
+
         /// <summary>
         /// btnDangKi control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDangKi;
-        
+
         /// <summary>
         /// txtTenDangNhap control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTenDangNhap;
-        
+
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// txtMatKhau control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMatKhau;
-        
+
         /// <summary>
         /// RequiredFieldValidator2 control.
         /// </summary>
@@ -65,7 +76,25 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
+        /// <summary>
+        /// imgCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCaptcha;
+
+        /// <summary>
+        /// txtCaptchaText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCaptchaText;
+
         /// <summary>
         /// cbGhiNho control.
         /// </summary>
@@ -74,7 +103,7 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox cbGhiNho;
-        
+
         /// <summary>
         /// lbThongBao control.
         /// </summary>
@@ -83,7 +112,7 @@ namespace shopMobileOnline.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbThongBao;
-        
+
         /// <summary>
         /// btnDangNhap control.
         /// </summary>

@@ -159,14 +159,14 @@
             margin: 35px auto;
             text-align: center;
             border: none;
-            background: #102a80;
+            background: black;
             padding: 10px 20px;
             color: white;
             border-radius: 5px;
-            
+            transition: 0.25s;
         }
         #btn-xemThem:hover {
-            background: #0f58c4;
+            background: #B2D426;
         }
         
     </style>

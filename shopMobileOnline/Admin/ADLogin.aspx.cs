@@ -28,55 +28,70 @@ namespace shopMobileOnline.Admin
 
         protected void btnDangNhap_Click(object sender, EventArgs e)
         {
-            DataAccess dataAccess = new DataAccess();
-            dataAccess.MoKetNoiCSDL();
-
-            //thuc thi proc nho sqlcommand cmd
-            SqlCommand cmd = new SqlCommand("KiemTraDangNhapAdmin", dataAccess.getConnection());
-            cmd.Parameters.AddWithValue("TENDANGNHAP", txtTenDangNhap.Text);
-            cmd.Parameters.AddWithValue("MATKHAU", txtMatKhau.Text);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            //show data lay duoc trong datatable
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            cmd.ExecuteNonQuery();
-
-            dataAccess.DongKetNoiCSDL();
-
-            //lay ket qua trong dt de doi chieu
-            if(dt.Rows.Count > 0)
+            //Tri code Captcha cho Admin
+            bool isCaptchaValid = false;
+            if (Session["CaptchaText"] != null && Session["CaptchaText"].ToString() == txtCaptchaText.Text)
             {
-                //Ghi nho dang nhap
-                if(cbGhiNho.Checked)
+                isCaptchaValid = true;
+            }
+            if (isCaptchaValid)
+            {
+                DataAccess dataAccess = new DataAccess();
+                dataAccess.MoKetNoiCSDL();
+
+                //thuc thi proc nho sqlcommand cmd
+                SqlCommand cmd = new SqlCommand("KiemTraDangNhapAdmin", dataAccess.getConnection());
+                cmd.Parameters.AddWithValue("TENDANGNHAP", txtTenDangNhap.Text);
+                cmd.Parameters.AddWithValue("MATKHAU", txtMatKhau.Text);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //show data lay duoc trong datatable
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmd.ExecuteNonQuery();
+
+                dataAccess.DongKetNoiCSDL();
+
+                //lay ket qua trong dt de doi chieu
+                if (dt.Rows.Count > 0)
                 {
-                    //Dung cookies
-                    Response.Cookies["username"].Value = txtTenDangNhap.Text;
-                    Response.Cookies["password"].Value = txtMatKhau.Text;
+                    //Ghi nho dang nhap
+                    if (cbGhiNho.Checked)
+                    {
+                        //Dung cookies
+                        Response.Cookies["username"].Value = txtTenDangNhap.Text;
+                        Response.Cookies["password"].Value = txtMatKhau.Text;
 
-                    //Thoi gian ghi nho
-                    Response.Cookies["username"].Expires = DateTime.Now.AddMinutes(60);
-                    Response.Cookies["password"].Expires = DateTime.Now.AddMinutes(60);
+                        //Thoi gian ghi nho
+                        Response.Cookies["username"].Expires = DateTime.Now.AddMinutes(60);
+                        Response.Cookies["password"].Expires = DateTime.Now.AddMinutes(60);
 
+                    }
+                    else
+                    {
+                        Response.Cookies["username"].Expires = DateTime.Now;
+                        Response.Cookies["password"].Expires = DateTime.Now;
+                    }
+
+
+
+                    Session["id"] = txtTenDangNhap.Text;
+                    Response.Redirect("ADTrangChu.aspx");
+                    Session.RemoveAll();
                 }
                 else
                 {
-                    Response.Cookies["username"].Expires = DateTime.Now;
-                    Response.Cookies["password"].Expires = DateTime.Now;
+                    lbThongBao.Text = "Sai tên đăng nhập hoặc mật khẩu";
                 }
-               
-
-
-                Session["id"] = txtTenDangNhap.Text;
-                Response.Redirect("ADTrangChu.aspx");
-                Session.RemoveAll();
             }
             else
             {
-                lbThongBao.Text = "Sai tên đăng nhập hoặc mật khẩu";
+                containerpu.Style.Add("display", "block");
             }
+            
+            
 
         }
         protected void btnDangKi_Click(object sender, EventArgs e)
