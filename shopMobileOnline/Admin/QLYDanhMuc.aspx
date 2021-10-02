@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAD.Master" AutoEventWireup="true" CodeBehind="QLYDanhMuc.aspx.cs" Inherits="shopMobileOnline.Admin.QLYDanhMuc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
+     <style>
          .qldm-container{
             margin: 0 0px;
             max-width: 100%;
@@ -44,6 +44,9 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             margin-left: 10px;
         }
+        .qldm-table{
+            margin-left:40%;
+        }
         .qldm-table,
         .qldm-column,
         .qldm-row,
@@ -53,9 +56,6 @@
             line-height: 1.3;
             color: #333333;
         }
-        .qldm-table{
-            margin-left:20%;
-        }
         .qldm-column{
            padding: 10px;
            text-align: center;
@@ -63,24 +63,49 @@
            font-weight: bold;
            background: #ffe4da
         }
+        .qldm-item {
+            padding: 10px;
+        }
+        .qldm-row:nth-child(even){
+            background: #fff9f9;
+        }
+        #qldm-item-tendm a {
+            font-weight: bold;
+            color: #031a43
+        }
+        #qldm-item-tendm a:hover{
+            color: #0654a9;
+            transition : all 0.1s ease-in;
+        }
+        .qldm-btnCapNhat {
+            color: #0654a9;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .qldm-btnCapNhat:hover{
+            color: #0094ff;
+        }
+        .qldm-btnXoa {
+            color: tomato;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .qldm-btnXoa:hover{
+            color: #f62d2d;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <div class="qldm-container">
+    <div class="qldm-container">
         <div class="qldm-header">
-            <h3 style="text-align: center; font-size: 30px; font-weight: bold; color: #262626;">Danh sách danh mục</h3>
-            <div class="qldm-btnThemMoi-container">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/TrangThemMoiSP.aspx">
-                    <i class="fas fa-plus"></i>
-                    <span>Thêm mới</span>
-                </asp:HyperLink>
-            </div>
+            <h3 style="text-align: center; font-size: 30px; font-weight: bold; color: #262626;">Danh sách sản phẩm</h3>
         </div>
         <table class="qldm-table">
             <thead>
                 <tr>
-                    <th class="qldm-column" style="min-width: 10px" >ID</th>
-                    <th class="qldm-column" style="min-width: 85px" >Sản phẩm</th>
+                    <th class="qldm-column" style="min-width: 200px" >Tên NSX</th>   
+                    <th class="qldm-column" style="min-width: 30px">Cập nhật</th>
+                    <th class="qldm-column" style="min-width: 30px">Xóa</th>
                 </tr>
             </thead>
             <tbody>
@@ -88,7 +113,7 @@
             </tbody>
         </table>   
         <div class="qldm-btnThemMoi-container" style="margin: 30px auto 0px;position: initial;width: 95px;">
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Admin/TrangThemMoiSP.aspx">
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Admin/TrangThemMoiNSX.aspx">
                     <i class="fas fa-plus"></i>
                     <span>Thêm mới</span>
                 </asp:HyperLink>

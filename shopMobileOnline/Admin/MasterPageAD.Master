@@ -380,7 +380,13 @@
                         <li class="sub" id="trangChuKH">
                             <a href="../KH/KHTrangChu.aspx" class="btn">Trang khách hàng <i class="fas fa-mouse-pointer"></i></a>
                        </li>
-
+                            <li class="sub" id="dm">
+                            <a href="#dm" class="btn">Quản lí Danh Mục <i class="fas fa-caret-down"></i></a>
+                            <div class="smenu">
+                                <a href="QLYDanhMuc.aspx">Thêm, xóa Danh Mục</a>
+                                <a href="QLYDanhMuc.aspx">Cập nhật Danh Mục</a>
+                            </div>
+                        </li>
                         <li class="sub" id="sp">
                             <a href="#sp" class="btn">Quản lí Sản Phẩm <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -10,61 +9,73 @@ using System.Web.UI.WebControls;
 
 namespace shopMobileOnline.Admin
 {
-    public partial class QLYDanhMuc : System.Web.UI.Page
-    {
+	public partial class QLYDanhMuc : System.Web.UI.Page
+	{
         protected void Page_Load(object sender, EventArgs e)
         {
-            //check xem nguoi dung co dang trong phien dang nhap
             if (Session["id"] == null)
             {
                 Response.Redirect("ADLogin.aspx");
             }
+            //hien thi ten nguoi dung o goc tren phai
             else
             {
-                DataAccess dataAccess = new DataAccess();
+            }
 
-                dataAccess.MoKetNoiCSDL();
+            DataAccess dataAccess = new DataAccess();
 
-                //Lay du lieu tu dtb luu vao dataTable
-                string sql = "SELECT ID_NSX, TENNSX FROM [NHASANXUAT]";
+            dataAccess.MoKetNoiCSDL();
 
-                DataTable dtDM = dataAccess.LayBangDuLieu(sql);
+            //Lay du lieu tu dtb luu vao dataTable
+            string sql = "SELECT ID_NSX, TENNSX, 'TrangCapNhatSP.aspx?idSP=' + CAST(ID_NSX AS NVARCHAR) AS CAPNHAT, ID_NSX AS XOA FROM NHASANXUAT";
 
-                if (dtDM != null && dtDM.Rows.Count > 0)
+            DataTable dtNSX = dataAccess.LayBangDuLieu(sql);
+
+            //Tao html dong duoi dang string de tao bang show du lieu
+            if (dtNSX != null && dtNSX.Rows.Count > 0)
+            {
+
+                StringBuilder sb = new StringBuilder();
+
+                foreach (DataRow dr in dtNSX.Rows)
                 {
-
-                    StringBuilder sb = new StringBuilder();
-
-                    foreach (DataRow dr in dtDM.Rows)
+                    sb.Append("<tr class=\"qldm-row\">");
+                    foreach (DataColumn dc in dtNSX.Columns)
                     {
-                        sb.Append("<tr class=\"qlsp-row\">");
-                        foreach (DataColumn dc in dtDM.Columns)
+                        if (dc.ColumnName == "CAPNHAT")
                         {
-                            if (dc.ColumnName == "CAPNHAT")
-                            {
-                                sb.Append("<th class=\"qlsp-item\">");
-                                sb.Append("<a href=\"" + dr[dc.ColumnName].ToString() + "\" class=\"qlsp-btnCapNhat\">Cập nhật</a>");
-                                sb.Append("</th>");
-                            }
-
-                            else if (dc.ColumnName == "TENSP")
-                            {
-                                sb.Append("<th class=\"qlsp-item\" id=\"qlsp-item-tensp\">");
-                                sb.Append("<a href=\"/KH/TrangChiTietSP.aspx?idSP=" + dr["ID_SP"] + "\">" + dr[dc.ColumnName].ToString() + "</a");
-                                sb.Append("</th>");
-                            }
-
+                            sb.Append("<th class=\"qldm-item\">");
+                            sb.Append("<a href=\"TrangCapNhatNSX.aspx?idNSX=" + dr["ID_NSX"] + "\" class=\"qldm-btnCapNhat\">Cập Nhật</a>");
+                            sb.Append("</th>");
                         }
-                        sb.Append("</tr>");
-                    }
-                    //Ket noi string html vao trang asp
-                    Panel1.Controls.Add(new Label { Text = sb.ToString() });
 
-                    //dong connection
-                    //if (connection.State == ConnectionState.Closed)
-                    //    connection.Close();
-                    dataAccess.DongKetNoiCSDL();
+                        else if (dc.ColumnName == "TENNSX")
+                        {
+                            sb.Append("<th class=\"qldm-item\" id=\"qldm-item-tendm\">");
+                            sb.Append("<a href=\"/KH/TrangSPTheoNSX.aspx?idNSX=" + dr["ID_NSX"] + "\">" + dr[dc.ColumnName].ToString() + "</a");
+                            sb.Append("</th>");
+                        }
+
+                        else if (dc.ColumnName == "XOA")
+                        {
+                            sb.Append("<th class=\"qldm-item\" id=\"qldm-item-xoa\">");
+                            sb.Append("<a href=\"TrangXoaNSX.aspx?idNSX=" + dr["ID_NSX"] + "\" class=\"qldm-btnXoa\">Xóa</a>");
+                            sb.Append("</th>");
+                        }
+
+                    }
+                    sb.Append("</tr>");
                 }
+
+                //Ket noi string html vao trang asp
+                Panel1.Controls.Add(new Label { Text = sb.ToString() });
+
+                //dong connection
+                //if (connection.State == ConnectionState.Closed)
+                //    connection.Close();
+                dataAccess.DongKetNoiCSDL();
+            }
+
         }
     }
 }
