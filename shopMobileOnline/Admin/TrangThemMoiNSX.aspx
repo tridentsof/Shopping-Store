@@ -47,6 +47,11 @@
             display: block;
             margin-left:5px;
         }
+        .lblThongBao{
+            color:red;
+            margin-left:30%;
+            margin-top:10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -63,6 +68,7 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
+         <asp:Label ID="lblThongBao" runat="server" Text="" CssClass="lblThongBao"></asp:Label>
         <div class="nut">
             <asp:Button ID="btnThem"  runat="server" Text="Thêm" Class="btnThem" OnClick="btnThem_Click"  />
             <asp:Button ID="btnHuy"  runat="server" Text="Hủy" Class="btnHuy"  CausesValidation="false" OnClick="btnHuy_Click"/>

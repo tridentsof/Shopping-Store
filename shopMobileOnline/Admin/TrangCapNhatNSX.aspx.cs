@@ -44,24 +44,24 @@ namespace shopMobileOnline.Admin
 
         protected void btnCapNhat_Click(object sender, EventArgs e)
         {
-            string idNSX = Request.QueryString.Get("idNSX").ToString();
-
             DataAccess dataAccess = new DataAccess();
             dataAccess.MoKetNoiCSDL();
-            //sql cap nhat dl
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "UPDATE NHASANXUAT SET TENNSX = N'" +txtTenNSX.Text.Trim() + "' "+ "WHERE ID_NSX= " +idNSX;
-            cmd.Connection = dataAccess.getConnection();
-            try
+            string idNSX = Request.QueryString.Get("idNSX").ToString();
+            SqlCommand cmd = new SqlCommand("UPDATE_NSX", dataAccess.getConnection());
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ID_NSX",idNSX);
+            cmd.Parameters.AddWithValue("@TENNSX", txtTenNSX.Text);
+            int a = cmd.ExecuteNonQuery();
+
+            if (a > 0)
             {
-                cmd.ExecuteNonQuery();
-                dataAccess.DongKetNoiCSDL();
                 Response.Redirect("QLYDanhMuc.aspx");
+
             }
-            catch
+            else
             {
-                Response.Write("<script>alert('Đã xảy ra lỗi. Vui lòng thực hiện lại')</script>");
-                dataAccess.DongKetNoiCSDL();
+                lblThongBao.Text = "Đã tồn tại Nhà Sản Xuất";
             }
         }
 

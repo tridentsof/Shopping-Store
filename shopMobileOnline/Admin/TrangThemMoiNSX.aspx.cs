@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -19,19 +20,21 @@ namespace shopMobileOnline.Admin
         {
             DataAccess dataAccess = new DataAccess();
             dataAccess.MoKetNoiCSDL();
-            string sql = "INSERT INTO NHASANXUAT(TENNSX)" +
-                "VALUES(N'" + txtTenNSX.Text.ToString().Trim() + "')";
-            SqlCommand cmd = new SqlCommand(sql, dataAccess.getConnection());
-            try
+
+            SqlCommand cmd = new SqlCommand("INSERT_NSX", dataAccess.getConnection());
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@TENNSX", txtTenNSX.Text);
+            int a = cmd.ExecuteNonQuery();
+
+            if (a > 0)
             {
-                cmd.ExecuteNonQuery();
-                dataAccess.DongKetNoiCSDL();
                 Response.Redirect("QLYDanhMuc.aspx");
+
             }
-            catch
+            else
             {
-                Response.Write("<script>alert('Đã xảy ra lỗi. Vui lòng thực hiện lại')</script>");
-                dataAccess.DongKetNoiCSDL();
+                lblThongBao.Text = "Đã tồn tại Nhà Sản Xuất";
             }
         }
 
