@@ -131,9 +131,6 @@ namespace shopMobileOnline.admin
                                 }
 
                                 tongTien += (int.Parse(dr["Gia"].ToString()) * int.Parse(dr["SoLuong"].ToString()));
-                                
-                                    
-                                
                             }
 
                             lblTamTinh.Text = String.Format("{0:n0}", int.Parse(tongTien.ToString())); 
@@ -209,8 +206,10 @@ namespace shopMobileOnline.admin
                         }
                     }
                  }
-
+                Session.Remove("cart");
                 Response.Redirect("DonHang.aspx");
+                
+
             }
             
         }
