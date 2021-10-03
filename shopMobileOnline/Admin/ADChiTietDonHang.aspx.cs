@@ -43,14 +43,14 @@ namespace shopMobileOnline.Admin
                         if (trangThai == 0)
                         {
                             
-                            lbDaGiao.Style.Add("display", "none");
+                            btnThanhCong.Style.Add("display", "none");
                             
                             btnHuy.Style.Add("display", "none");
                         }
                         else if (trangThai == 1)
                         {
                             btnCho.Style.Add("display", "none");
-                            lbDaGiao.Style.Add("display", "none");
+                            btnThanhCong.Style.Add("display", "none");
                         }
                         else if (trangThai == 2)
                         {
@@ -168,6 +168,41 @@ namespace shopMobileOnline.Admin
                 if (trangTruoc == 0)
                 {
                     Response.Redirect("DonHangDaHuy.aspx");
+
+                }
+                if (trangTruoc == 1)
+                {
+                    Response.Redirect("DonHangChoDuyet.aspx");
+                }
+                if (trangTruoc == 2)
+                {
+                    Response.Redirect("DonHangThanhCong.aspx");
+                }
+                if (trangTruoc == 3)
+                {
+                    Response.Redirect("ADTrangChu.aspx");
+                }
+            }
+        }
+
+        protected void btnThanhCong_Click(object sender, EventArgs e) {
+            if (Request.QueryString.Get("idDH") != null && Request.QueryString.Get("t") != null)
+            {
+                int trangTruoc = int.Parse(Request.QueryString.Get("t"));
+                string idDH = Request.QueryString.Get("idDH");
+                DataAccess dataAccess = new DataAccess();
+                dataAccess.MoKetNoiCSDL();
+
+                string sql = "UPDATE DONHANG SET TRANGTHAI = 3 WHERE ID_DONHANG = " + idDH;
+
+                SqlCommand cmd = new SqlCommand(sql, dataAccess.getConnection());
+
+                cmd.ExecuteNonQuery();
+
+                dataAccess.DongKetNoiCSDL();
+                if (trangTruoc == 0)
+                {
+                    Response.Redirect("DonHangThanhCong.aspx");
 
                 }
                 if (trangTruoc == 1)
