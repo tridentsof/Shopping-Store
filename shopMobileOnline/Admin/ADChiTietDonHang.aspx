@@ -495,7 +495,8 @@
                             <asp:Button ID="btnHuy" runat="server" Text="Hủy đơn hàng" OnClick="btnHuy_Click" CssClass="ctdh-btnHuy" />
                             <asp:Button ID="btnCho" runat="server" Text="Chuyển sang chờ duyệt" OnClick="btnCho_Click" CssClass="ctdh-btnCho" />
                             <asp:Button ID="btnDuyet" runat="server" Text="Xác nhận giao hàng" OnClick="btnDuyet_Click" CssClass="ctdh-btnXacNhan" />
-                            <asp:Label ID="lbDaGiao" runat="server" Text="Đơn hàng đã giao thành công" CssClass="lbDaGiao"></asp:Label>
+                            <%--<asp:Label ID="lbDaGiao" runat="server" Text="Đơn hàng đã giao thành công" CssClass="lbDaGiao"></asp:Label>--%>
+                            <asp:Button ID="btnThanhCong" runat="server" Text="Thanh toán thành công" OnClick="btnThanhCong_Click" CssClass="ctdh-btnXacNhan"/>
                         </td>
                     </tr>
                     </table>
