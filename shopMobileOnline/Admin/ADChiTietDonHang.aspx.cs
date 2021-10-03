@@ -52,11 +52,16 @@ namespace shopMobileOnline.Admin
                             btnCho.Style.Add("display", "none");
                             btnThanhCong.Style.Add("display", "none");
                         }
-                        else if (trangThai == 2)
+                        else if(trangThai == 2)
+                        {
+                            btnDuyet.Style.Add("display", "none");
+                        }
+                        else if (trangThai == 3)
                         {
                             btnDuyet.Style.Add("display", "none");
                             btnHuy.Style.Add("display", "none");
                             btnCho.Style.Add("display", "none");
+                            btnThanhCong.Style.Add("display", "none");
                         }
                     }
 
@@ -143,7 +148,7 @@ namespace shopMobileOnline.Admin
                 }
                 if (trangTruoc == 3)
                 {
-                    Response.Redirect("ADTrangChu.aspx");
+                    Response.Redirect("DonHangChoThanhToan.aspx");
                 }
             }
         }
