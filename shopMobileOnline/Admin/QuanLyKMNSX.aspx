@@ -90,6 +90,10 @@
             width: 50%;
             margin-left:25%;    
             margin-top:10px;
+            color:rgb(131, 131, 131);
+            height:30px;
+            border-color:yellowgreen;
+            color:yellowgreen;
         }
         .edit-container i {
             font-size: 20px;
