@@ -47,12 +47,12 @@ namespace shopMobileOnline.Admin
                 int a = dataAccess.ExecuteNonQuery("update_km_nsx", p);
                 if (a > 0)
                 {
-                    Label1.Style.Remove("display");
                     Label1.Style.Add("display", "block");
                     Label1.Text = "Áp dụng thành công";
                 }
                 else
                 {
+                    Label1.Style.Add("display", "block");
                     Label1.Text = "Áp dụng thất bại";
                     Label1.Style.Add("color", "red");
                 }

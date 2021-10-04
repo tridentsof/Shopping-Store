@@ -80,7 +80,7 @@
         }
         .button-active:hover{
             background-color: white;
-            border: 1px solid yellowgreen;
+            border: 1px solid yellowgreen!important;
             color: yellowgreen;
         }
         .edit-container {

@@ -41,7 +41,7 @@ namespace shopMobileOnline.Admin
                 lbSPTon.Text = String.Format("{0:n0}", dt.Rows[0]["TONGTON"]);
             }
 
-            //don hang cho duyet
+            //don hang da ban
             string sqlDHChoDuyet = "SELECT ID_DONHANG, NGAYDH, DBO.TONG_SOLUONG(ID_DONHANG) AS TONGSL, DBO.TONG_DONHANG(ID_DONHANG) AS TONGTIEN FROM DONHANG WHERE TRANGTHAI = 3 ORDER BY ID_DONHANG DESC";
 
             DataTable dtDHChoDuyet = dataAccess.LayBangDuLieu(sqlDHChoDuyet);
