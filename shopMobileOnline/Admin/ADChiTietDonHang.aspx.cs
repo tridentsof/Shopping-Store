@@ -54,10 +54,27 @@ namespace shopMobileOnline.Admin
                         }
                         else if(trangThai == 2)
                         {
+                            txtTen.Style.Add("cursor", "not-allowed");
+                            txtSDT.Style.Add("cursor", "not-allowed");
+                            txtEmail.Style.Add("cursor", "not-allowed");
+                            txtDiaChi.Style.Add("cursor", "not-allowed");
+                            txtTen.Style.Add("cursor", "not-allowed");
+                            txtTen.Attributes.Add("ReadOnly", "True");
+                            txtSDT.Attributes.Add("ReadOnly", "True");
+                            txtEmail.Attributes.Add("ReadOnly", "True");
+                            txtDiaChi.Attributes.Add("ReadOnly", "True");
                             btnDuyet.Style.Add("display", "none");
                         }
                         else if (trangThai == 3)
                         {
+                            txtTen.Style.Add("cursor", "not-allowed");
+                            txtSDT.Style.Add("cursor", "not-allowed");
+                            txtEmail.Style.Add("cursor", "not-allowed");
+                            txtDiaChi.Style.Add("cursor", "not-allowed");
+                            txtTen.Attributes.Add("ReadOnly", "True");
+                            txtSDT.Attributes.Add("ReadOnly", "True");
+                            txtEmail.Attributes.Add("ReadOnly", "True");
+                            txtDiaChi.Attributes.Add("ReadOnly", "True");
                             btnDuyet.Style.Add("display", "none");
                             btnHuy.Style.Add("display", "none");
                             btnCho.Style.Add("display", "none");
