@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAD.Master" AutoEventWireup="true" CodeBehind="QLSanPham.aspx.cs" Inherits="shopMobileOnline.Admin.QLSanPham" %>
-<%@ MasterType VirtualPath="~/Admin/MasterPageAD.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPageAD.Master" AutoEventWireup="true" CodeBehind="AD_Loc_SP.aspx.cs" Inherits="shopMobileOnline.Admin.AD_Loc_SP" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .qlsp-container{
@@ -55,7 +54,7 @@
             color: #333333;
         }
         .qlsp-table{
-            width: 80%;
+           width: 80%;
             margin: 0 auto;
         }
         .qlsp-column{
@@ -95,75 +94,28 @@
         .qlsp-btnXoa:hover{
             color: #f62d2d;
         }
-       
-            .txt_search{
-            width: 155px;
-            height: 30px;
-            box-shadow: 1px 1px 5px #636e72;
-            border: 1px solid gray;
-            border-radius: 3px;
-        }
-        .btn_search{
-            border-radius: 3px;
-            background-color: #B2D426;
-            padding: 5px 18px ;
-            font-size: 15px;
-            color: whitesmoke;
-            border: 1px solid gray;
-            margin-left: 20px;
-            box-shadow: 1px 1px 5px #636e72;
-            cursor:pointer;
-
-        }
-        .bao{
-            margin: 20px 134px;
-        }
-        .bao_button{
-            display: flex;
-           margin: 30px auto 0px;
-           justify-content:space-around;
-           width: 120px;
-           
-          
-
+        .filter{
+            margin-left: 10px;
+            font-size: 10px;
             
         }
-        .text_trang{
-            font-size: 16px;
-            text-align: center;
-        }
-        .btn_trang{
-            border-radius: 3px;
-            background-color: #B2D426;
-            padding: 3px 10px ;
-            font-size: 15px;
-            color: whitesmoke;
-            border: 1px solid gray;
-            box-shadow: 1px 1px 5px #636e72;
-            cursor:pointer;
-           
+        .icon_back{
+            font-size: 22px;
+            position: absolute;
+            left: 300px;
+            color: #B2D426;
 
         }
-        .text_lable{
-            font-size: 16px;
-            text-align: center;
-            margin-left: 4px;
-        }
-        .bao_trang{
-             display: flex;
-           margin: 10px auto 0px;
-           justify-content:center;
-           width: 120px;
-        }
+
+       
   
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="qlsp-container">
+     <div class="qlsp-container">
         <div class="qlsp-header">
             <h3 style="text-align: center; font-size: 30px; font-weight: bold; color: #262626;">Danh sách sản phẩm</h3>
-             
-            
+            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Admin/QLSanPham.aspx"><i class="fas fa-chevron-left icon_back" ></i></asp:HyperLink>
             <div class="qlsp-btnThemMoi-container">
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/TrangThemMoiSP.aspx">
                     <i class="fas fa-plus"></i>
@@ -171,39 +123,27 @@
                 </asp:HyperLink>
             </div>
         </div>
-         <div class="bao">
-                <asp:TextBox ID="txt_Loc" CssClass="txt_search" runat="server" placeholder="Type filter" ></asp:TextBox>
-                <asp:Button ID="btn_Loc" runat="server" CssClass="btn_search"  OnClick="btn_Loc_Click" Text="Lọc"/>
-
-            </div>
+         <h4><b>
+             <asp:Label ID="Label1" runat="server" Text="" CssClass="lable"></asp:Label></b></h4>
+         
         <table class="qlsp-table">
             <thead>
                 <tr>
                     <th class="qlsp-column" style="min-width: 10px" >ID</th>
                     <th class="qlsp-column" style="min-width: 85px" >Sản phẩm</th>
                     <th class="qlsp-column" style="min-width: 30px" >NSX</th>                    
-                    <th class="qlsp-column" style="min-width: 30px" >Loại</th>                       
-                    <th class="qlsp-column" style="min-width: 40px">Giá</th>
+                    <th class="qlsp-column" style="min-width: 30px" > Loại<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><i class="fas fa-filter filter"></i></asp:LinkButton></th>
+                    <th class="qlsp-column" style="min-width: 40px">Giá <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"><i class="fas fa-filter filter"></i></asp:LinkButton></th>
                     <th class="qlsp-column" style="min-width: 10px">Đã bán</th>
-                    <th class="qlsp-column" style="min-width: 20px">Tình trạng</th>
+                    <th class="qlsp-column" style="min-width: 20px">Tình trạng<asp:LinkButton ID="LinkButton3" OnClick="LinkButton3_Click" runat="server"><i class="fas fa-filter filter"></i></asp:LinkButton> </th>
                     <th class="qlsp-column" style="min-width: 30px">Cập nhật</th>
                     <th class="qlsp-column" style="min-width: 30px">Xóa</th>
                 </tr>
             </thead>
             <tbody>
-                <asp:Panel ID="Panel1" runat="server" ></asp:Panel>
+                <asp:Panel ID="Panel1" runat="server"></asp:Panel>
             </tbody>
-        </table> 
-        <div class="bao_button" > 
-            <asp:Button ID="Button1" runat="server" CssClass="btn_trang" Text="1" OnClick="Button1_Click" />
-            <asp:Button ID="Button2" runat="server" Text="2" CssClass="btn_trang" OnClick="Button2_Click" />
-            <asp:Button ID="Button3" runat="server" Text="3" CssClass="btn_trang" OnClick="Button3_Click" />
-            
-        </div>
-        <div class="bao_trang" >
-            <p class="text_trang">Trang</p>
-        <asp:Label CssClass="text_lable" ID="Label1" runat="server" Text=""></asp:Label>
-        </div>
+        </table>   
         <div class="qlsp-btnThemMoi-container" style="margin: 30px auto 0px;position: initial;width: 95px;">
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Admin/TrangThemMoiSP.aspx">
                     <i class="fas fa-plus"></i>
