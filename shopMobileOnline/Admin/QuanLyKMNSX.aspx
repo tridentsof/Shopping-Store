@@ -80,7 +80,7 @@
         }
         .button-active:hover{
             background-color: white;
-            border: 1px solid yellowgreen;
+            border: 1px solid yellowgreen!important;
             color: yellowgreen;
         }
         .edit-container {
@@ -107,7 +107,7 @@
             </div>
             <p class="p-discount p-percent">Nhập phần trăm khuyến mãi</p>
             <asp:TextBox CssClass="input-percent" ID="txtPhanTramKH" runat="server"></asp:TextBox><br />
-             <asp:Button CssClass="button-active" ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" BorderStyle="None" /><br />
+             <asp:Button CssClass="button-active" ID="Button1" runat="server" Text="Áp dụng" OnClick="Button1_Click" BorderStyle="None" /><br />
              <asp:Label ID="Label1" CssClass="p-success" runat="server" Text=""></asp:Label>
         </div>
     </div>

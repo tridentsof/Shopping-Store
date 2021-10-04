@@ -192,7 +192,7 @@
     <div id="containerpu" class="container-popup" runat="server">
         <div class="popup">
             <i class="far fa-times-circle x-icon"></i>
-            <p class="text-popup">SAI MÃ CAPTCHA</p>
+            <p style="font-family:sans-serif;" class="text-popup">SAI MÃ CAPTCHA</p>
         </div>
     </div>
     <script src="index.js"></script>

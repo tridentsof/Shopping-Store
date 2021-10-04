@@ -185,7 +185,7 @@
     <div class="adtrangchu-container">
         <section class="section-thongKe">
             <div class="auto-style1">
-                <p class="section-item-header header-choDuyet">Đơn hàng chờ duyệt</p>
+                <p class="section-item-header header-choDuyet">Toàn bộ đơn hàng đã bán</p>
                 <table class="table" border="1">
                 <tr  class="table-tr">
                     <th class="table-th">ID</th>

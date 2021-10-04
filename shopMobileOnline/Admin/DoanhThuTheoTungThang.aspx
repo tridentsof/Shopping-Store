@@ -129,27 +129,61 @@
             border:none;
             color:white
         }
+        .input-percent{      
+            border: 0;
+            border-bottom: 2px solid gray;
+            outline: 0;
+            font-size: 1.3rem;
+            color: white;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+            color: #B2D426;
+            width: 50%;
+            text-align: center;
+            border-color: yellowgreen;
+        }
+        .button-active{
+            font-size: 18px;
+            background-color: #B2D426;
+            color: white;
+            height: 30px;
+            width: 100px;
+            margin-top: 5%;
+            cursor: pointer;
+            transition: 0.25s;
+            display: block;  
+            border-radius: 2px;
+            margin-left: 34%;
+            outline: none;
+            border: none;
+        }
+        .button-active:hover{
+            background-color: white;
+            border: 1px solid yellowgreen;
+            color: yellowgreen;
+        }
+        .container-sum{
+            width: 300px;
+            height: 150px;
+            border: 1px solid yellowgreen;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            text-align: center;
+        }
+        .content-sum{
+            padding-top: 20px;
+            color: rgb(131, 131, 131);
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p >       
-        <div class="nut">
-            <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True">
-            <asp:ListItem>1</asp:ListItem>
-            <asp:ListItem>2</asp:ListItem>
-            <asp:ListItem>3</asp:ListItem>
-            <asp:ListItem>4</asp:ListItem>
-            <asp:ListItem>5</asp:ListItem>
-            <asp:ListItem>6</asp:ListItem>
-            <asp:ListItem>7</asp:ListItem>
-            <asp:ListItem>8</asp:ListItem>
-            <asp:ListItem>9</asp:ListItem>
-            <asp:ListItem>10</asp:ListItem>
-            <asp:ListItem>11</asp:ListItem>
-            <asp:ListItem>12</asp:ListItem>
-        </asp:DropDownList>
-        <asp:Button ID="btnTim"  runat="server" Text="Tìm Kiếm" Class="btnTim" OnClick="btnTim_Click" Height="26px" />
-            </div>
+     <div class="container-sum">
+        <p class="content-sum">Nhập tháng cần thống kê</p>
+         <asp:TextBox CssClass="input-percent" ID="TextBox1" runat="server"></asp:TextBox>
+         <asp:Button ID="btnTim"  runat="server" Text="Thống kê" CssClass="button-active" OnClick="btnTim_Click" Height="26px" />
+    </div
     <div class="adtrangchu-container">
          <section class="section-thongKe">
             <div class="auto-style1">
