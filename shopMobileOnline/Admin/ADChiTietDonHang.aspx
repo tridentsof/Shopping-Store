@@ -405,6 +405,9 @@
         .ctdt-ttkh-table-container tr {
             padding: 10px;
         }
+        cursor-none{
+            cursor:not-allowed!important;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -454,14 +457,14 @@
                                     <asp:TableRow runat="server">
                                         <asp:TableCell runat="server">Họ tên (*)</asp:TableCell>
                                         <asp:TableCell runat="server">
-                                            <asp:TextBox ID="txtTen" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass="cursor-none" ID="txtTen" runat="server" ReadOnly="False"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Họ tên không được bỏ trống" ControlToValidate="txtTen" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                     <asp:TableRow runat="server">
                                         <asp:TableCell runat="server">Email</asp:TableCell>
                                         <asp:TableCell runat="server">
-                                            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass="cursor-none" ID="txtEmail" runat="server" ReadOnly="False"></asp:TextBox>
 
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email không hợp lệ" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$" CssClass="txterror" Display="Dynamic"></asp:RegularExpressionValidator>
 
@@ -471,7 +474,7 @@
                                     <asp:TableRow runat="server">
                                         <asp:TableCell runat="server">Số điện thoại <span class="dauSao">(*)</span></asp:TableCell>
                                         <asp:TableCell runat="server">
-                                            <asp:TextBox ID="txtSDT" runat="server"></asp:TextBox>
+                                            <asp:TextBox CssClass="cursor-none" ID="txtSDT" runat="server" ReadOnly="False"></asp:TextBox>
 
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Số điện thoại không được bỏ trống" ControlToValidate="txtSDT" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -480,7 +483,7 @@
                                     <asp:TableRow runat="server">
                                         <asp:TableCell runat="server">Địa chỉ <span class="dauSao">(*)</span></asp:TableCell>
                                         <asp:TableCell runat="server">
-                                            <asp:TextBox ID="txtDiaChi" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                            <asp:TextBox CssClass="cursor-none" ID="txtDiaChi" runat="server" TextMode="MultiLine" ReadOnly="False"></asp:TextBox>
 
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Địa chỉ không được bỏ trống" ControlToValidate="txtDiaChi" CssClass="txterror" Display="Dynamic"></asp:RequiredFieldValidator>
 

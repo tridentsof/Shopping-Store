@@ -455,14 +455,11 @@
                         <li class="sub" id="doanhthu">
                             <a href="#doanhthu" class="btn">Thống kê <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">
-                                <a href="#">Doanh thu sản phẩm theo tháng</a>
-                                <a href="#">Thống kê sản phẩm bán chạy</a>
-                                <a href="#">Thống kê sản phẩm tồn kho</a>
-                                <a href="#">Tổng thu</a>
+                                <a href="DoanhThuTheoTungThang.aspx">Doanh thu tháng</a>
+                                <a href="TrangTKSanPhamBanChay.aspx">Sản phẩm bán chạy</a>
+                                <a href="TrangTKSanPhamTonKho.aspx">Thống kê sản phẩm tồn kho</a>
+                                <a href="TrangTongThu.aspx">Tổng thu</a>
                             </div>
-                        </li>
-                        <li class="sub">
-                            <a href="#" class="btn"><i class="far fa-envelope"></i>Mailbox</a>
                         </li>
                         <li class="sub">
                             <asp:LinkButton ID="btnDangXuat" runat="server" CssClass="btn-logout" OnClick="btnDangXuat_Click">Đăng xuất <i class="fas fa-sign-in-alt"></i></asp:LinkButton>
