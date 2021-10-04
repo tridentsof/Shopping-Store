@@ -99,6 +99,11 @@
             font-size: 20px;
             margin-left: 20px;
         }
+         .error{
+            color:#840032;  
+            margin-top:50px;
+            font-size:18px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -113,6 +118,13 @@
             <asp:TextBox CssClass="input-percent" ID="txtPhanTramKH" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button1" CssClass="button-active" runat="server" Text="Áp dụng" OnClick="Button1_Click" BorderStyle="None" />  <br />
             <asp:Label ID="Label1" CssClass="p-success" runat="server" Text=""></asp:Label>
+               <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtPhanTramKH" runat="server" 
+                 ErrorMessage="Giá trị phải trong khoảng từ 1-100"  
+                MinimumValue="1"
+                MaximumValue="100"
+                 Type="Integer"
+                CssClass="error">
+            </asp:RangeValidator>
         </div>
     </div>
     
