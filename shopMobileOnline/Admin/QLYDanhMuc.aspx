@@ -13,6 +13,12 @@
              align-items: center;
              margin-bottom: 30px;
         }
+        h3{
+            text-transform: uppercase;
+            padding-top: 4%;
+            color: #B2D426;
+            font-weight: 600;
+        }
         .qldm-btnThemMoi-container {
             position: absolute;
             right: 40px;
@@ -45,23 +51,25 @@
             margin-left: 10px;
         }
         .qldm-table{
-            margin-left:40%;
+            margin:auto;
+            left:500px;
         }
         .qldm-table,
         .qldm-column,
         .qldm-row,
         .qldm-item {
+             margin:auto;
             border: 1px solid #adc9fa;  
             text-align: left;
             line-height: 1.3;
-            color: #333333;
+            color: #2f3542;
         }
         .qldm-column{
            padding: 10px;
            text-align: center;
            vertical-align: middle;
            font-weight: bold;
-           background: #ffe4da
+           background-color: #B2D426;
         }
         .qldm-item {
             padding: 10px;
@@ -98,7 +106,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="qldm-container">
         <div class="qldm-header">
-            <h3 style="text-align: center; font-size: 30px; font-weight: bold; color: #262626;">Danh sách sản phẩm</h3>
+            <h3 style="text-align: center;">Danh sách các nhà sản xuất</h3>
         </div>
         <table class="qldm-table">
             <thead>

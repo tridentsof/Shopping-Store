@@ -18,10 +18,6 @@ namespace shopMobileOnline.Admin
                 Response.Redirect("ADLogin.aspx");
             }
             //hien thi ten nguoi dung o goc tren phai
-            else
-            {
-
-            }
             if (!IsPostBack)
             {
                 string idNSX = Request.QueryString.Get("idNSX").ToString();

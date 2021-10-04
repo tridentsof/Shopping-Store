@@ -13,7 +13,10 @@ namespace shopMobileOnline.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["id"] == null)
+            {
+                Response.Redirect("ADLogin.aspx");
+            }
         }
 
         protected void btnThem_Click(object sender, EventArgs e)
