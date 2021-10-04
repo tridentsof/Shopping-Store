@@ -35,6 +35,7 @@
             text-decoration: none;
         }
         * {
+            font-family:sans-serif;
             color: #333333;
         }
         /* HTML5 display-role reset for older browsers */
@@ -44,6 +45,7 @@
         }
 
         body {
+            font-family:sans-serif!important;
             line-height: 1;
         }
 
@@ -68,12 +70,13 @@
         .header {
             position: fixed;
             width: 100%;
-            background-color: #24e0dd;
+            background-color: white;
             height: 50px;
             z-index: 999;
             padding-right: 10px;
             display: flex;
             justify-content: space-between;
+            box-shadow: 0px 2px 5px rgb(126 126 126);
         }
 
         .logo {
@@ -81,7 +84,7 @@
             width: 200px;
             height: 100%;
             margin-left: 0px;
-            background-color: #37c5cc;
+            background-color: #B2D426;
         }
 
         a.text {
@@ -133,10 +136,18 @@
                         padding: 16px;
                     }
                      .notification ul li i {
+                         transition:0.25s;
                          color: white;
                      }
                     .notification ul li:hover {
-                        background-color: #f19066;
+                        background-color: #B2D426;
+                        color:white!important;
+                    }
+                    .notification ul li:hover i{
+                        color:white!important;
+                    }
+                    .notification ul li:hover .adminName2{
+                        color:white!important;
                     }
         #admin-name a {
             display: flex;
@@ -147,7 +158,7 @@
         #admin-name a span {
             color: white;
             font-weight: 500;
-            font-family:Arial, sans-serif;
+            
         }
         .body-content {
             position: relative;
@@ -213,13 +224,13 @@
             margin-top: 10px;
             border: none;
             width: 180px;
-            background-color: #95afc0;
+            background-color: white!important;
             height: 30px;
             margin-left: 10px;
             border-radius: 5px;
         }
 
-        input[type=search]:focus {
+        input[type=search] {
             background-color: white;
         }
 
@@ -246,7 +257,7 @@
                 color: #2f3542;
             }
 
-        .manager-menu {
+        .manager-menu {     
             margin-top: 10px;
             width: 180px;
         }
@@ -261,7 +272,12 @@
                 padding-left: 20px;
                 background-color: #353b48;
             }
-
+        a.btn{
+            color: #B2D426!important;
+        }
+        i{
+            color: #B2D426!important;
+        }
         .sub {
             width: 200px;
             overflow: hidden;
@@ -328,6 +344,16 @@
         .content {
             padding: 50px 0 0 200px;
         }
+        .adminName{
+            font-family:sans-serif;
+            color:black;
+        }
+        .adminName2{
+            color:#B2D426!important;
+        }
+        .btn-logout{
+            color:#B2D426!important;
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -348,7 +374,7 @@
                     <li id="admin-name">
                         <a href="#">
                             <i class="far fa-user-circle"></i>
-                            <asp:Label ID="lbADName" runat="server" Text="Admin"></asp:Label>
+                            <asp:Label ID="lbADName" runat="server" Text="Admin" CssClass="adminName adminName2"></asp:Label>
                         </a>
 
                     </li>
@@ -363,7 +389,7 @@
                         <img src="../images/avatar.png" alt="">
                     </div>
                     <div class="info">
-                        <asp:Label ID="lbADName1" runat="server" Text="Admin"></asp:Label>
+                        <asp:Label ID="lbADName1" runat="server" Text="Admin" CssClass="adminName"></asp:Label>
                         <a href="#">
                             <i class="fas fa-circle"></i>
                             Online
@@ -395,14 +421,14 @@
                             </div>
                         </li>
                         <li class="sub" id="account">
-                            <a href="#account" class="btn">Quản lí Khách hàng <i class="fas fa-caret-down"></i></i></a>
+                            <a href="#account" class="btn">Quản lí Khách hàng <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">
                                 <a href="QLTaiKhoanKH.aspx">Thêm, xóa Khách hàng</a>
                                 <a href="QLTaiKhoanKH.aspx">Cập nhật Khách hàng</a>
                             </div>
                         </li>
                         <li class="sub" id="admin">
-                            <a href="#admin" class="btn">Quản lí Admin <i class="fas fa-caret-down"></i></i></a>
+                            <a href="#admin" class="btn">Quản lí Admin <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">
                                 <a href="QLTaiKhoanAdmin.aspx">Thêm, xóa Admin</a>
                                 <a href="QLTaiKhoanAdmin.aspx">Cập nhật Admin</a>
@@ -410,7 +436,7 @@
                             </div>
                         </li>
                         <li class="sub" id="donhang">
-                            <a href="#donhang" class="btn">Quản lí Đơn hàng <i class="fas fa-caret-down"></i></i></a>
+                            <a href="#donhang" class="btn">Quản lí Đơn hàng <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">
                                 <a href="DonHangChoDuyet.aspx">Đơn hàng chờ duyệt</a>
                                 <a href="DonHangDaHuy.aspx">Đơn hàng đã hủy</a>
@@ -418,18 +444,28 @@
                                 <a href="DonHangThanhCong.aspx">Đơn hàng thành công</a>
                             </div>
                         </li>
-                        <li class="sub" id="doanhthu">
-                            <a href="#doanhthu" class="btn">Doanh Thu <i class="fas fa-caret-down"></i></i></a>
+                        <li class="sub" id="khuyemai">
+                            <a href="#khuyemai" class="btn">Quản lí khuyến mãi <i class="fas fa-caret-down"></i></i></a>
                             <div class="smenu">
+                                <a href="QuanLyKMTheoMua.aspx">Khuyến mãi theo mùa</a>
+                                <a href="QuanLyKMLoai.aspx">Khuyến mãi theo loại</a>
+                                <a href="QuanLyKMNSX.aspx">Khuyến mãi nhà sản xuất</a> 
+                            </div>
+                        </li>
+                        <li class="sub" id="doanhthu">
+                            <a href="#doanhthu" class="btn">Thống kê <i class="fas fa-caret-down"></i></a>
+                            <div class="smenu">
+                                <a href="#">Doanh thu sản phẩm theo tháng</a>
+                                <a href="#">Thống kê sản phẩm bán chạy</a>
+                                <a href="#">Thống kê sản phẩm tồn kho</a>
                                 <a href="#">Tổng thu</a>
-                                <a href="#">Tổng chi</a>
                             </div>
                         </li>
                         <li class="sub">
                             <a href="#" class="btn"><i class="far fa-envelope"></i>Mailbox</a>
                         </li>
                         <li class="sub">
-                            <asp:LinkButton ID="btnDangXuat" runat="server" OnClick="btnDangXuat_Click">Đăng xuất <i class="fas fa-sign-in-alt"></i></asp:LinkButton>
+                            <asp:LinkButton ID="btnDangXuat" runat="server" CssClass="btn-logout" OnClick="btnDangXuat_Click">Đăng xuất <i class="fas fa-sign-in-alt"></i></asp:LinkButton>
                         </li>
                     </ul>
                 </div>

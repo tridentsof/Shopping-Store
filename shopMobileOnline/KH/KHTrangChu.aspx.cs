@@ -99,7 +99,7 @@ namespace shopMobileOnline.admin
             DataAccess dataAccess = new DataAccess();
             dataAccess.MoKetNoiCSDL();
 
-            string sql = "SELECT ID_SP, ID_NSX, ID_LOAI, TENSP, HINH, SOLUONG, DONGIA, CAST(DONGIA*1.15 AS INT) AS GIAGOC, CAST(DONGIA*0.4 AS INT) AS GIATRATRUOC FROM SANPHAM WHERE TINHTRANG = 1 AND SOLUONG > 0";
+            string sql = "SELECT SP.ID_SP, ID_NSX, ID_LOAI, TENSP, HINH, SOLUONG, CAST((100 - PHANTRAMKHUYENMAI)*DONGIA/100 AS INT) AS GIAKM, DONGIA, CAST(DONGIA*0.4 AS INT) AS GIATRATRUOC FROM SANPHAM SP WHERE TINHTRANG = 1 AND SOLUONG > 0";  
 
             DataTable dt = dataAccess.LayBangDuLieu(sql);
 

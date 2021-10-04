@@ -71,11 +71,12 @@ namespace shopMobileOnline.Admin
             }
 
             //sql insert new sp
-            string sql = "INSERT INTO SANPHAM(TENSP,ID_NSX,ID_LOAI,MANHINH,CAMERASAU,CAMERATRUOC,CPU,BONHO,KETNOI,PIN,HINH,SOLUONG,DONGIA,SOLUONG_DABAN,TINHTRANG) " +
+            //Tri doi cau lenh SQL
+            string sql = "INSERT INTO SANPHAM(TENSP,ID_NSX,ID_LOAI,MANHINH,CAMERASAU,CAMERATRUOC,CPU,BONHO,KETNOI,PIN,HINH,SOLUONG,DONGIA,SOLUONG_DABAN,TINHTRANG,PHANTRAMKHUYENMAI) " +
                 "VALUES (N'" + txtTenSP.Text.ToString().Trim() + "'," + int.Parse(ddlNSX.SelectedValue) + "," + int.Parse(ddlLoai.SelectedValue) +
                 ",N'" + txtManHinh.Text.ToString().Trim() + "',N'" + txtCamSau.Text.ToString().Trim() + "',N'" + txtCamTruoc.Text.ToString().Trim() + "',N'" + txtCPU.Text.ToString().Trim() + "',N'" + txtBoNho.Text.ToString().Trim() + "',N'" + txtKetNoi.Text.ToString().Trim() + "',N'" + txtPin.Text.ToString().Trim() + "',N'" +
                 fileName +
-                "'," + int.Parse(txtSoLuong.Text) + "," + int.Parse(txtGia.Text) + "," + int.Parse(txtSLDaBan.Text) + "," + rblTinhTrang.SelectedValue + ")";
+                "'," + int.Parse(txtSoLuong.Text) + "," + int.Parse(txtGia.Text) + "," + int.Parse(txtSLDaBan.Text) + "," + rblTinhTrang.SelectedValue + "," + 0 +")";
 
             SqlCommand cmd = new SqlCommand(sql, dataAccess.getConnection());
             try
