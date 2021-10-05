@@ -25,7 +25,7 @@ namespace shopMobileOnline.admin
                 dataAccess.MoKetNoiCSDL();
 
                 //viet cau lenh sql de lay thong tin san pham
-                string sql = "SELECT * FROM SANPHAM S, LOAI L, NHASANXUAT N WHERE ID_SP =" + idSP + " AND S.ID_LOAI = L.ID_LOAI AND S.ID_NSX = N.ID_NSX";
+                string sql = "SELECT *,CAST((100 - PHANTRAMKHUYENMAI)*DONGIA/100 AS INT) AS GIAKM FROM SANPHAM S, LOAI L, NHASANXUAT N WHERE ID_SP =" + idSP + " AND S.ID_LOAI = L.ID_LOAI AND S.ID_NSX = N.ID_NSX";
 
                 //luu du lieu da goi vao data table
                 DataTable dt = dataAccess.LayBangDuLieu(sql);
@@ -36,7 +36,7 @@ namespace shopMobileOnline.admin
                 lbNSX.Text = dt.Rows[0]["TENNSX"].ToString();
                 lbLoai.Text = dt.Rows[0]["TENLOAI"].ToString();
                 lbSL.Text = dt.Rows[0]["SOLUONG"].ToString();
-                lbGia.Text = String.Format("{0:N0}", dt.Rows[0]["DONGIA"]) + " VND";
+                lbGia.Text = String.Format("{0:N0}", dt.Rows[0]["GIAKM"]) + " VND";
                 lbManHinh.Text = dt.Rows[0]["MANHINH"].ToString();
                 lbCamSau.Text = dt.Rows[0]["CAMERASAU"].ToString();
                 lbCamTruoc.Text = dt.Rows[0]["CAMERATRUOC"].ToString();

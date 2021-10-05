@@ -143,10 +143,10 @@
                     <div class="listsp-gia-container">
                         <div>
                             <p class="item-gia">
-                                 <%# Eval("DONGIA","{0:n0}") %> <span style="font-size: 16px">&#8363;</span>
+                                 <%# Eval("GIAKM","{0:n0}") %> <span style="font-size: 16px">&#8363;</span>
                             </p>
                             <p class="item-giaGoc">
-                                <%# Eval("GIAGOC","{0:n0}") %> &#8363;
+                                <%# Eval("DONGIA","{0:n0}") %> &#8363;
                             </p>
 
                         </div>
