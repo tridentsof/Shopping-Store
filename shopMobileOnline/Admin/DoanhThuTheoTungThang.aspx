@@ -5,7 +5,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 45px 0;
+            padding: 50px 0;
         }
 
         
@@ -189,10 +189,11 @@
             <div class="auto-style1">
                 <p class="section-item-header header-choDuyet">Doanh Theo Từng Tháng</p>
                 <table class="table" border="1">
-                <tr  class="table-tr">
-                    <th class="table-th">ID</th>
-                    <th class="table-th" style="max-width:50px">Tháng</th>
-                    <th class="table-th">Tổng</th>
+                <tr  class="table-tr" >
+                    
+                    <th class="table-th" style="max-width:40px">Tháng</th>
+                    <th class="table-th" style="max-width:100px">Số Lượng Bán Ra</th>
+                    <th class="table-th">Tổng Doanh Thu</th>
                     <%--<th class="table-th"  style="min-width: 80px">Xem</th>--%>
                 </tr>
                 <asp:Panel ID="Panel1" runat="server"></asp:Panel>
