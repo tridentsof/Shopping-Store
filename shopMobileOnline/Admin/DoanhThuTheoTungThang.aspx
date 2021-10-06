@@ -74,14 +74,28 @@
             width: 100%;
             margin: 0 auto;
         }
+        .table1 {
+            width: 100%;
+            margin: 0 auto;
+        }
         .table,
         .table-th,
         .table-tr,
+        .table1,
+        .table1-th,
+        .table1-tr,
         .table-item {
             border: 1px solid #adc9fa;  
             text-align: left;
             line-height: 1.3;
             color: #333333;
+        }
+         .table-td {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            font-family:Arial, sans-serif;
+            
         }
         .table-th{
            padding: 10px;
@@ -90,24 +104,55 @@
            font-weight: bold;
            background: #ffe4da
         }
-        .table-td {
+        .table-item {
+            padding: 10px;
+        }
+         .table-tr:nth-child(even){
+            background: #fff9f9;
+        }
+         #table-item-tensp a {
+            font-weight: bold;
+            color: #031a43
+        }
+        #table-item-tensp a:hover{
+            color: #0654a9;
+            transition : all 0.1s ease-in;
+        }
+        .table1-item {
+            border: 1px solid #adc9fa;  
+            text-align: left;
+            line-height: 1.3;
+            color: #333333;
+        }
+        .table1-th{
+           padding: 10px;
+           text-align: center;
+           vertical-align: middle;
+           font-weight: bold;
+           background: #ffe4da
+        }
+       
+        .table1-td {
             text-align: center;
             font-size: 12px;
             font-weight: 500;
             font-family:Arial, sans-serif;
             
         }
-        .table-item {
+        
+        .table1-item {
             padding: 10px;
         }
-        .table-tr:nth-child(even){
+       
+        .table1-tr:nth-child(even){
             background: #fff9f9;
         }
-        #table-item-tensp a {
+       
+        #table1-item-tensp a {
             font-weight: bold;
             color: #031a43
         }
-        #table-item-tensp a:hover{
+        #table1-item-tensp a:hover{
             color: #0654a9;
             transition : all 0.1s ease-in;
         }
@@ -187,10 +232,10 @@
     <div class="adtrangchu-container">
          <section class="section-thongKe">
             <div class="auto-style1">
-                <p class="section-item-header header-choDuyet">Doanh Theo Từng Tháng</p>
+                <p class="section-item-header header-choDuyet">Doanh Thu Theo Từng Tháng</p>
                 <table class="table" border="1">
                 <tr  class="table-tr" >
-                    
+                    <th class="table-th" style="max-width:40px">Tên Sản Phẩm</th>
                     <th class="table-th" style="max-width:40px">Tháng</th>
                     <th class="table-th" style="max-width:100px">Số Lượng Bán Ra</th>
                     <th class="table-th">Tổng Doanh Thu</th>
@@ -198,5 +243,14 @@
                 </tr>
                 <asp:Panel ID="Panel1" runat="server"></asp:Panel>
             </table>
+                <table class="table1" border="1">
+                <tr  class="table1-tr" >
+                                       
+                    <th class="table1-th">Tổng Doanh Thu Của Tháng</th>
+                    <%--<th class="table-th"  style="min-width: 80px">Xem</th>--%>
+                </tr>
+                <asp:Panel ID="Panel2" runat="server"></asp:Panel>
+            </table>
+
             </div>
 </asp:Content>
