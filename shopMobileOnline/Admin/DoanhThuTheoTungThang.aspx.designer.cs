@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shopMobileOnline.Admin
-{
-
-
-    public partial class DoanhThuTheoTungThang
-    {
-
+namespace shopMobileOnline.Admin {
+    
+    
+    public partial class DoanhThuTheoTungThang {
+        
         /// <summary>
         /// TextBox1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace shopMobileOnline.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
+        
         /// <summary>
         /// btnTim control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace shopMobileOnline.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTim;
-
+        
         /// <summary>
         /// Panel1 control.
         /// </summary>
@@ -40,5 +38,14 @@ namespace shopMobileOnline.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
     }
 }
