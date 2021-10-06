@@ -21,7 +21,7 @@ namespace shopMobileOnline.KH
                 DataAccess dataAccess = new DataAccess();
                 dataAccess.MoKetNoiCSDL();
 
-                string sqlAll = "SELECT ID_SP, ID_NSX, ID_LOAI, TENSP, HINH, SOLUONG, DONGIA, CAST(DONGIA*1.15 AS INT) AS GIAGOC, CAST(DONGIA*0.4 AS INT) AS GIATRATRUOC FROM SANPHAM WHERE TINHTRANG = 1 AND SOLUONG > 0";
+                string sqlAll = "SELECT SP.ID_SP, ID_NSX, ID_LOAI, TENSP, HINH, SOLUONG,DONGIA, CAST((100 - PHANTRAMKHUYENMAI)*DONGIA/100 AS INT) AS GIAKM, DONGIA, CAST(DONGIA*0.4 AS INT) AS GIATRATRUOC FROM SANPHAM SP WHERE TINHTRANG = 1 AND SOLUONG > 0";
 
                 DataTable dtAll = dataAccess.LayBangDuLieu(sqlAll);
 
@@ -38,7 +38,7 @@ namespace shopMobileOnline.KH
 
 
                 //viet cau lenh sql de lay thong tin san pham
-                string sql = "SELECT * FROM SANPHAM S, LOAI L, NHASANXUAT N WHERE ID_SP =" + idSP + " AND S.ID_LOAI = L.ID_LOAI AND S.ID_NSX = N.ID_NSX";
+                string sql = "SELECT *,CAST((100 - PHANTRAMKHUYENMAI)*DONGIA/100 AS INT) AS GIAKM FROM SANPHAM S, LOAI L, NHASANXUAT N WHERE ID_SP =" + idSP + " AND S.ID_LOAI = L.ID_LOAI AND S.ID_NSX = N.ID_NSX";
 
                 //luu du lieu da goi vao data table
                 DataTable dt = dataAccess.LayBangDuLieu(sql);
@@ -94,7 +94,7 @@ namespace shopMobileOnline.KH
                                 dr["ID"] = dt.Rows[0]["ID_SP"].ToString();
                                 dr["Hinh"] = dt.Rows[0]["HINH"].ToString();
                                 dr["Ten"] = dt.Rows[0]["TENSP"].ToString();
-                                dr["Gia"] = int.Parse(dt.Rows[0]["DONGIA"].ToString());
+                                dr["Gia"] = int.Parse(dt.Rows[0]["GIAKM"].ToString());
                                 dr["SoLuong"] = soLuongDatHang;
                                 cart.Rows.Add(dr);
                             }

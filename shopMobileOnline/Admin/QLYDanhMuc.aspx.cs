@@ -18,9 +18,6 @@ namespace shopMobileOnline.Admin
                 Response.Redirect("ADLogin.aspx");
             }
             //hien thi ten nguoi dung o goc tren phai
-            else
-            {
-            }
 
             DataAccess dataAccess = new DataAccess();
 

@@ -6,17 +6,29 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 70vh;
             padding: 35px 0;
+            box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
+             border-radius: 3px;
+             border: none;
+             transition:1.5s;
+             width:800px;
+             margin:auto;
+             margin-top:200px;
+             transition:1.5s;
+        }
+        .xoansx-container:hover{
+             box-shadow: 2px 4px 10px #B2D426;
         }
         .xoansx-header {
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 18px;
             margin-bottom: 30px;
+            text-transform: uppercase;
+            color: rgb(141, 141, 141);
+            font-weight: 600;
         }
         .lblNSX{
-            font-size: 22px;
-            color: tomato;
+            font-size: 18px;
+            color:  #B2D426;
             font-weight: bold;
         }
         .xoansx-btn {
@@ -29,21 +41,36 @@
             
         }
         .xoansx-btn-xoa {
-            background: tomato;
-            color: white;
-            margin-right: 10px;
+         font-size: 18px;
+          background-color: #B2D426;
+          color: white;
+            width:80px;
+           height:40px;
+            cursor: pointer;
+            transition: 0.25s;
+            border-radius: 2px;
+            border:none;
         }
         .xoansx-btn-xoa:hover{
-            background: #cc330d;
-            transition: all 0.2s ease-in;
+           background-color: white;
+            border: 1px solid yellowgreen!important;
+            color: yellowgreen;
         }
         .xoansx-btn-huy {
-            background: #726f6f;
-            color: white;
+            background-color:#b2bec3;
+          font-size: 18px;
+          color: white;
+           width:80px;
+           height:40px;
+           cursor: pointer;
+           transition: 0.25s;
+           border-radius: 2px;
+           border:none;
         }
         .xoansx-btn-huy:hover{
-            background: #1a1a1a;
-            transition: all 0.2s ease-in;
+           background-color:white;
+            color:#b2bec3;
+            border: 1px solid #b2bec3;  
         }
     </style>
 </asp:Content>
