@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Admin Login</title>
+    <link rel="icon" href="../images/3.png" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <style>
         * {
@@ -151,38 +152,38 @@
            border-color: #B2D426;   
        }
        .container-popup{
-    width: 100%;
-    height: 730px;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.473);
-    display: none;
-    top:0;
-}
-.popup{
-    width: 300px;
-    height: 170px;
-    background-color: whitesmoke;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 16%;
-    border-radius: 8px;
-    box-shadow: 2px 4px 10px rgb(75, 75, 75);
-}
-.x-icon{
-    font-size: 35px;
-    margin-left: 45%;
-    margin-top: 40px;
-    color: #a9ca25;
-}
-.text-popup{
-    font-weight: 600;
-    color: rgb(97, 97, 97);
-    margin-left: 28%;
-    margin-top: 30px;
-}                                      
-.active{
-    display: block;
-}
+            width: 100%;
+            height: 730px;
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.473);
+            display: none;
+            top:0;
+        }
+        .popup{
+            width: 300px;
+            height: 170px;
+            background-color: whitesmoke;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 16%;
+            border-radius: 8px;
+            box-shadow: 2px 4px 10px rgb(75, 75, 75);
+        }
+        .x-icon{
+            font-size: 35px;
+            margin-left: 45%;
+            margin-top: 40px;
+            color: #a9ca25;
+        }
+        .text-popup{
+            font-weight: 600;
+            color: rgb(97, 97, 97);
+            margin-left: 28%;
+            margin-top: 30px;
+        }                                      
+        .active{
+            display: block;
+           }
         .forquit {
             display: none!important;
         }
@@ -202,7 +203,7 @@
             <div class="content-container">
                 <div class="content-header">
                     <p>Đăng nhập</p>
-                    <asp:Button ID="btnDangKi" runat="server" Text="Đăng ký" OnClick="btnDangKi_Click" ToolTip="Bạn không được phép đăng kí Admin. Để đăng kí, vui lòng đăng nhập với tư cách Admin, sau đó vào quản lí tài khoản Admin để tiếp tục" />
+                    <asp:Button ID="btnDangKi" OnClientClick="alert()" runat="server" Text="Đăng ký" ToolTip="Bạn không được phép đăng kí Admin. Để đăng kí, vui lòng đăng nhập với tư cách Admin, sau đó vào quản lí tài khoản Admin để tiếp tục" />
                 </div>
                 <div class="content-body">
                     <div class="content-body-header">
@@ -250,7 +251,11 @@
                     background.classList.remove('active');
                     background.classList.add('forquit');
                 })
+
             })
+         function alert() {
+                alert("I am an alert box!");
+            }
      </script>
 </body>
 </html>

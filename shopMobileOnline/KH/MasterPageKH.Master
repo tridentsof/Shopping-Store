@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MURE Store</title>
+    <title>Mure Store</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -17,9 +17,8 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="/CSS/admin.css">
     <link href="https://fonts.googleapis.com/css?family=Wallpoet&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
+    <link rel="icon" href="../images/3.png" />
     <style>
         * {
             margin: 0;
@@ -264,7 +263,8 @@
                     }
 
                     .contact ul li i:hover {
-                        transform: scale(2.0);
+                        transition:0.25s;
+                        transform: scale(1.7);
                     }
 
         .footer {
@@ -369,6 +369,11 @@
                     margin-right: 10px;
                     color: #e77f67;
                 }
+                .logo-mure{
+                    margin-left:60px;
+                    height:60px;
+                    width:70px;
+                }
     </style>
 
  
@@ -398,7 +403,7 @@
         </div>
         <div class="top-body">
             <div class="top-body-logo">
-                <a href="KHTrangChu.aspx">MURE.COM</a>
+                <a href="KHTrangChu.aspx"><img class="logo-mure" src="../images/2.png"/></a>
             </div>
             <asp:Panel ID="Panel1" runat="server" DefaultButton="btnSearch" >
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -476,7 +481,7 @@
 
             <div class="copyright">
                 <div class="text">
-                    Copyright by Mure.Com - MURE<a href="KHTrangChu.aspx" style="color: white">.com</a>
+                    <a href="KHTrangChu.aspx" style="color: white">Copyright by ProX Team - 2021</a>
                 </div>
             </div>
         </div>

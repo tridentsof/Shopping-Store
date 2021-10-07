@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shopMobileOnline.admin {
-    
-    
-    public partial class TrangDanhSachSP {
-        
+namespace shopMobileOnline.admin
+{
+
+
+    public partial class TrangDanhSachSP
+    {
+
         /// <summary>
         /// Image1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace shopMobileOnline.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image1;
-        
+
         /// <summary>
         /// rptItem control.
         /// </summary>
@@ -29,15 +31,17 @@ namespace shopMobileOnline.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptItem;
-        
+
         /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new shopMobileOnline.KH.MasterPageKH Master {
-            get {
+        public new shopMobileOnline.KH.MasterPageKH Master
+        {
+            get
+            {
                 return ((shopMobileOnline.KH.MasterPageKH)(base.Master));
             }
         }

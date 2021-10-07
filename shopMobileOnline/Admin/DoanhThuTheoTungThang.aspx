@@ -15,7 +15,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 10px auto 50px;
+            margin-left:auto;
+            margin-right:auto;
         }
 
 
@@ -72,11 +73,13 @@
         
         .table {
             width: 100%;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right:auto
         }
         .table1 {
             width: 100%;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right:auto
         }
         .table,
         .table-th,
@@ -220,6 +223,11 @@
         .content-sum{
             padding-top: 20px;
             color: rgb(131, 131, 131);
+        }
+        .auto-style1{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 70px;
         }
         </style>
 </asp:Content>

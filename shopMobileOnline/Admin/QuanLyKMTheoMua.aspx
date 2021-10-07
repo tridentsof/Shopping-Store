@@ -41,13 +41,13 @@
             
         }
         #discount-ha:hover{
-            border: 2px solid orange;
+            border: 2px solid #95C623;
         }
         #discount-thu:hover{
-            border: 2px solid greenyellow;
+            border: 2px solid #7D1128;
         }
         #discount-dong:hover{
-            border: 2px solid rgb(59, 59, 255);
+            border: 2px solid #0A014F;
         }
         .content-discount{
             padding-top: 20px;
@@ -77,20 +77,20 @@
             transform: scale(0);
         }
         .btn-xuan{
-            background-color: yellow;
-            color: rgb(165, 165, 165);
+            background-color: #C98686;
+            color: #ffff;   
         }
         .btn-ha{
-            background-color: orange;
-            color: rgb(255, 255, 255);
+            background-color: #95C623;
+            color: #ffff;
         }
         .btn-thu{
-            background-color: greenyellow;
-            color: rgb(255, 255, 255);
+            background-color: #7D1128;
+            color: #ffff;
         }
         .btn-dong{
-            background-color: rgb(59, 59, 255);
-            color: rgb(223, 223, 223);
+            background-color: #0A014F;
+            color: #ffff;
         }
         .p-success{
             display:none;
