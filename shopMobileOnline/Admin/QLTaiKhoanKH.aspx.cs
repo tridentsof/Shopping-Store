@@ -25,7 +25,7 @@ namespace shopMobileOnline.Admin
             dataAccess.MoKetNoiCSDL();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select ID_TK, TENDANGNHAP, MATKHAU, HOTEN, EMAIL, DIACHI, SDT, 'ADCapNhatTK.aspx?id=' + CAST(ID_TK AS NVARCHAR) AS CAPNHAT, 'ADXoaTK.aspx?id=' + CAST(ID_TK AS NVARCHAR) AS XOA from [TAIKHOAN] where ID_LOAITK=2";
+            cmd.CommandText = "select ID_TK, TENDANGNHAP, MATKHAU, HOTEN, EMAIL, DIACHI, SDT,CASE STATUS WHEN 'Verified' THEN N'Mở' WHEN 'Unverified' THEN N'Đóng' END AS TINHTRANG, 'ADCapNhatTK.aspx?id=' + CAST(ID_TK AS NVARCHAR) AS CAPNHAT, 'ADXoaTK.aspx?id=' + CAST(ID_TK AS NVARCHAR) AS XOA from [TAIKHOAN] where ID_LOAITK=2";
             cmd.Connection = dataAccess.getConnection();
             SqlDataReader rd = cmd.ExecuteReader();
 
@@ -43,8 +43,9 @@ namespace shopMobileOnline.Admin
                     table.Append("<td class=\"table-td table-item\">" + rd[4] + "</td>");
                     table.Append("<td class=\"table-td table-item\">" + rd[5] + "</td>");
                     table.Append("<td class=\"table-td table-item\">" + rd[6] + "</td>");
-                    table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/" + rd[7] + "\" class=\"qltk-btnCapNhat\">Cập nhật</a> </td>");
-                    table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/" + rd[8] + "\" class=\"qltk-btnXoa\">Xóa</a> </td>");
+                    table.Append("<td class=\"table-td table-item\">" + rd[7] + "</td>");
+                    table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/" + rd[8] + "\" class=\"qltk-btnCapNhat\">Cập nhật</a> </td>");
+                    table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/" + rd[9] + "\" class=\"qltk-btnXoa\">Xóa</a> </td>");
 
                     table.Append("</tr>");
                 }

@@ -24,12 +24,14 @@ namespace shopMobileOnline.KH
             SqlCommand cmd = new SqlCommand("get_email", dataAccess.getConnection());
             cmd.Parameters.AddWithValue("@EMAIL", Request.QueryString["emailadd"]);
             cmd.CommandType = CommandType.StoredProcedure;
-
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
             cmd.ExecuteNonQuery();
             dataAccess.DongKetNoiCSDL();
+
+            //Lay ten nguoi dung
+            //String sqlTen = "SELECT TENDANGNHAP FROM TAIKHOAN WHERE TENDANGNHAP=" + ;
           
             if (ds.Tables[0].Rows.Count > 0)
             {

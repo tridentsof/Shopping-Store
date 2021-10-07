@@ -120,7 +120,7 @@ namespace shopMobileOnline.Admin
                 }
                 if (trangTruoc == 1)
                 {
-                    Response.Redirect("DonHangChoDuyet.aspx");
+                    Response.Redirect("DonHangChoThanhToan.aspx");
                 }
                 if (trangTruoc == 2)
                 {
@@ -128,7 +128,7 @@ namespace shopMobileOnline.Admin
                 }
                 if (trangTruoc == 3)
                 {
-                    Response.Redirect("ADTrangChu.aspx");
+                    Response.Redirect("DonHangChoThanhToan.aspx");
                 }
             }
 

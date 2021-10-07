@@ -93,15 +93,5 @@ namespace shopMobileOnline.KH
                 containerpu.Style.Add("display", "block");
             }
         }
-
-        //Tri code login with Google
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string clientid = "294304503360-1r37p7pcl022fnarjeldackdm13hanb4.apps.googleusercontent.com";
-            string clientsecret = "Z9GF0FFKvfuKdkFT9XAYKH2Y";
-            string redirection_url = "http://localhost:53508/KH/KHTrangChu.aspx";
-            string url = "https://accounts.google.com/o/oauth2/v2/auth?scope=profile&include_granted_scopes=true&redirect_uri=" + redirection_url + "&response_type=code&client_id=" + clientid + "";
-            Response.Redirect(url);
-        }
     }
 }

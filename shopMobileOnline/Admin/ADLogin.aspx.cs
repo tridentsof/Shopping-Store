@@ -94,10 +94,11 @@ namespace shopMobileOnline.Admin
             
 
         }
-        protected void btnDangKi_Click(object sender, EventArgs e)
-        {
-           
-        }
+        //protected void btnDangKi_Click(object sender, EventArgs e)
+        //{
+        //    snackbar.Style.Add("visibility", "visible");
+        //    snackbar.Style.Add("animation", " fadein 0.5s, fadeout 0.5s 2.5s");
+        //}
 
     }
 }

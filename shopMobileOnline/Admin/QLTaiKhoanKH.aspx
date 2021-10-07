@@ -131,6 +131,7 @@
                 <th class="table-th">Email</th>
                 <th class="table-th">Địa chỉ</th>
                 <th class="table-th">SDT</th>
+                <th class="table-th">Tình trạng</th>
                 <th class="table-th">Cập nhật</th>
                 <th class="table-th">Xóa</th>
 

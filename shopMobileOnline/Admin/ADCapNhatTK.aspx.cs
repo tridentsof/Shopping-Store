@@ -31,9 +31,21 @@ namespace shopMobileOnline.Admin
                 //Lay id kh tu duoi website
                 string id = Request.QueryString.Get("id");
 
-
                 DataAccess data = new DataAccess();
                 data.MoKetNoiCSDL();
+
+                //Kiem tra trang thai tai khoan de hien thi nut "Mo tai khoan"
+                string sqlTrangThaiTK = "SELECT STATUS FROM TAIKHOAN WHERE ID_TK=" + id;
+                DataTable tbTrangThai = data.LayBangDuLieu(sqlTrangThaiTK);
+                string TrangThaiTk = tbTrangThai.Rows[0]["STATUS"].ToString();
+                if(TrangThaiTk == "Unverified")
+                {
+                    btnMo.Style.Add("display", "block");
+                }
+                else if(TrangThaiTk == "Verified")
+                {
+                    btnKhoa.Style.Add("display", "block");
+                }
 
                 string sql = "SELECT * FROM TAIKHOAN T, LOAITK L WHERE T.ID_LOAITK = L.ID_LOAITK AND ID_TK = " + id;
 
@@ -51,10 +63,6 @@ namespace shopMobileOnline.Admin
                 }
 
                 data.DongKetNoiCSDL();
-
-                //tien dat code cai nay
-                for (int i = 0; i < 5; i++)
-                    i = 1;
 
             }
         }
@@ -162,6 +170,56 @@ namespace shopMobileOnline.Admin
             dataAccess.MoKetNoiCSDL();
             string sql = "SELECT * FROM TAIKHOAN WHERE ID_TK =" + id;
             DataTable dt = dataAccess.LayBangDuLieu(sql);
+
+            string loaiTK = dt.Rows[0]["ID_LOAITK"].ToString();
+            if (int.Parse(loaiTK) == 1)
+            {
+                Response.Redirect("QLTaiKhoanAdmin.aspx");
+            }
+            if (int.Parse(loaiTK) == 2)
+            {
+                Response.Redirect("QLTaiKhoanKH.aspx");
+            }
+            dataAccess.DongKetNoiCSDL();
+        }
+
+        //Tri code khoa tai khoan
+        protected void btnKhoa_Click(object sender, EventArgs e)
+        {
+            string id = Request.QueryString.Get("id");
+            DataAccess dataAccess = new DataAccess();
+
+            dataAccess.MoKetNoiCSDL();
+            string sql = "UPDATE TAIKHOAN SET STATUS = 'Unverified' WHERE ID_TK =" + id;
+            SqlCommand cmd = new SqlCommand(sql, dataAccess.getConnection());
+            cmd.ExecuteNonQuery();
+
+            string sqlCheckTK = "SELECT * FROM TAIKHOAN WHERE ID_TK =" + id;
+            DataTable dt = dataAccess.LayBangDuLieu(sqlCheckTK);
+
+            string loaiTK = dt.Rows[0]["ID_LOAITK"].ToString();
+            if (int.Parse(loaiTK) == 1)
+            {
+                Response.Redirect("QLTaiKhoanAdmin.aspx");
+            }
+            if (int.Parse(loaiTK) == 2)
+            {
+                Response.Redirect("QLTaiKhoanKH.aspx");
+            }
+            dataAccess.DongKetNoiCSDL();
+        }
+        protected void btnMo_Click(object sender, EventArgs e)
+        {
+            string id = Request.QueryString.Get("id");
+            DataAccess dataAccess = new DataAccess();
+
+            dataAccess.MoKetNoiCSDL();
+            string sql = "UPDATE TAIKHOAN SET STATUS = 'Verified' WHERE ID_TK =" + id;
+            SqlCommand cmd = new SqlCommand(sql, dataAccess.getConnection());
+            cmd.ExecuteNonQuery();
+
+            string sqlCheckTK = "SELECT * FROM TAIKHOAN WHERE ID_TK =" + id;
+            DataTable dt = dataAccess.LayBangDuLieu(sqlCheckTK);
 
             string loaiTK = dt.Rows[0]["ID_LOAITK"].ToString();
             if (int.Parse(loaiTK) == 1)

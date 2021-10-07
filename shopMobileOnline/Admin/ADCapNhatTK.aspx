@@ -148,7 +148,7 @@
 
         .cntk-btns {
             margin: 0 auto;
-            display: flex;
+            display: flex; 
         }
 
         .cntk-btn {
@@ -163,6 +163,7 @@
             border-radius: 4px;
             cursor: pointer;
             margin: 10px;
+            border:none;
         }
 
         .cntk-btn-CapNhat {
@@ -194,6 +195,27 @@
         }
         .validationSumary{
             display: none;
+        }
+        .btnMo{
+            background:#B2D426;
+            display:none;
+        }
+        .btnMo:hover{
+            background: #6AB547;
+            transition:0.25s ease-in;
+        }
+        .btnKhoa{
+            background:#ED254E;
+            width: 108px;
+            display:none;
+        }
+        .btnKhoa:hover{
+            background:#70161E;
+            transition:0.25s;
+        }
+        .cnsp-btns{
+            width:320px;
+            display:inline-flex;
         }
     </style>
 </asp:Content>
@@ -275,6 +297,8 @@
         <div class="cnsp-btns">
             <asp:Button ID="btncapnhat" runat="server" Text="Cập nhật" OnClick="btncapnhat_Click" CssClass="cntk-btn cntk-btn-CapNhat"/>
             <asp:Button ID="btnHuy" CssClass="cntk-btn cntk-btn-Huy" runat="server" Text="Hủy" OnClick="btnHuy_Click" />
+            <asp:Button ID="btnKhoa" CssClass="cntk-btn btnKhoa" runat="server" Text="Khoá tài khoản" OnClick="btnKhoa_Click" />
+            <asp:Button ID="btnMo" CssClass="cntk-btn  btnMo" runat="server" Text="Mở tài khoản" OnClick="btnMo_Click" />
         </div>
         </div>
     </div>

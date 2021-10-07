@@ -414,7 +414,7 @@
     <div class="ctdh-Giohang">
             <div class="ctdh-head-text">
                 <div class="ctdh-text">
-                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="back" NavigateUrl="~/Admin/ADTrangChu.aspx"><i class="fas fa-chevron-left"></i> Dashboard</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="back" NavigateUrl="~/Admin/ADTrangChu.aspx"><i class="fas fa-chevron-left"></i> Trang chủ</asp:HyperLink>
                     <p>Thông tin đơn hàng</p>
                 </div>
             </div>
@@ -443,7 +443,7 @@
                     <tr class="ctdh-tr-tongTien">
                         <td class="ctdh-left1">
                             
-                            <h5>Tổng tiền:</h5>
+                            <h5 style="font-family:sans-serif">Tổng tiền:</h5>
                         </td>
                         <td class="ctdh-right1">
                             <asp:Label ID="lblTong" runat="server" Text=""></asp:Label>

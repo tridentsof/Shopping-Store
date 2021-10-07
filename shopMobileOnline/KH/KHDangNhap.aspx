@@ -236,8 +236,6 @@
                         <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
                     </div>
                     <asp:Button ID="btnDangNhap" runat="server" Text="Đăng nhập " OnClick="btnDangNhap_Click" CssClass="btnDangNhap" />
-                    <p style="color:#BFC0C0">hoặc</p>
-                    <asp:Button ID="Button1" CssClass="btnDangNhap btn-google" runat="server" Text="Google +" OnClick="Button1_Click" />
                 </div>
 
             </div>
