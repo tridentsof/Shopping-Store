@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: auto;
-            padding: 70px 0;
+            padding: 15px 0;
         }
 
         .content-container {
@@ -210,6 +210,20 @@
         .forquit {
             display: none!important;
         }
+        .txtCaptcha{
+            border: 0;
+            border-bottom: 2px solid gray;
+            outline: 0;
+            font-size: 1.3rem;
+            color: white;
+            padding: 7px 0;
+            background: transparent;
+            transition: border-color 0.2s;
+            color: #B2D426;
+            width: 50%;
+            text-align: center;
+            border-color: yellowgreen;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -291,7 +305,7 @@
                     </div>
                     <div class="content-item content-txt">
                         <asp:Image ID="imgCaptcha" CssClass="content-txt" runat="server" ImageUrl="~/CaptchaImage.aspx" />
-                        <asp:TextBox ID="txtCaptchaText" CssClass="txtInput content-txt"  runat="server" Width="100px" />
+                        <asp:TextBox ID="txtCaptchaText" CssClass="txtCaptcha content-txt"  runat="server" Width="100px" />
                     </div>
                     <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror lbThongBao"></asp:Label>
                 </div>
