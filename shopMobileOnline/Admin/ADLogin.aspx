@@ -233,7 +233,7 @@
                         </div>
                         <div class="content-item content-checkbox">
                             <asp:CheckBox ID="cbGhiNho" runat="server" />
-                            <p>Ghi nhớ đăng nhập</p>
+                            <p style="font-family:sans-serif">Ghi nhớ đăng nhập</p>
                         </div>
                     <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="txterror"></asp:Label>
                     </div>

@@ -371,9 +371,9 @@
                 <ul>
                     <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><i class="far fa-envelope"></i></a></li>
                     <li><a href="#"><i class="far fa-bell"></i></a></li>
-                    <li><a href="#"><i class="far fa-flag"></i></a></li>
+                    <li><a href="TrangTongThu.aspx"><i class="far fa-flag"></i></a></li>
                     <li id="admin-name">
-                        <a href="#">
+                        <a href="ADTrangChu.aspx">
                             <i class="far fa-user-circle"></i>
                             <asp:Label ID="lbADName" runat="server" Text="Admin" CssClass="adminName adminName2"></asp:Label>
                         </a>
