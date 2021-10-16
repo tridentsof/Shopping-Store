@@ -457,6 +457,7 @@
                             <a href="#doanhthu" class="btn">Thống kê <i class="fas fa-caret-down"></i></a>
                             <div class="smenu">
                                 <a href="DoanhThuTheoTungThang.aspx">Doanh thu tháng</a>
+                                <a href="DoanhThuDenNgay.aspx">Doanh thu theo ngày</a>
                                 <a href="TrangTKSanPhamBanChay.aspx">Sản phẩm bán chạy</a>
                                 <a href="TrangTKSanPhamTonKho.aspx">Thống kê sản phẩm tồn kho</a>
                                 <a href="TrangTongThu.aspx">Tổng thu</a>
