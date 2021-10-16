@@ -10,7 +10,7 @@
 namespace shopMobileOnline.Admin {
     
     
-    public partial class TrangTKSanPhamBanChay {
+    public partial class DoanhThuDenNgay {
         
         /// <summary>
         /// TextBox1 control.
@@ -22,13 +22,22 @@ namespace shopMobileOnline.Admin {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// btnTim control.
+        /// TextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTim;
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Panel1 control.
