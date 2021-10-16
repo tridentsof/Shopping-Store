@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Text;
 
 namespace shopMobileOnline.Admin
 {
@@ -20,6 +21,37 @@ namespace shopMobileOnline.Admin
             {
                 Response.Redirect("ADLogin.aspx");
             }
+            DataAccess dataAccess = new DataAccess();
+            dataAccess.MoKetNoiCSDL();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT KHUYENMAI.TENKM,CHITIETKM.ID_NSX,CHITIETKM.PHANTRAMKHUYENMAI,CASE CHITIETKM.TRANGTHAI WHEN 1 THEN N'Mở' WHEN 0 THEN N'Đóng' END AS TINHTRANG FROM KHUYENMAI, CHITIETKM, NHASANXUAT WHERE CHITIETKM.MAKM = KHUYENMAI.MAKM AND NHASANXUAT.ID_NSX = CHITIETKM.ID_NSX ";
+
+
+            cmd.Connection = dataAccess.getConnection();
+            SqlDataReader rd = cmd.ExecuteReader();
+
+            StringBuilder table = new StringBuilder();
+
+            if (rd.HasRows)
+            {
+                while (rd.Read())
+                {
+                    table.Append("<tr class=\"table-tr\">");
+                    table.Append("<td class=\"table-td table-item\">" + rd[0] + "</td>");
+                    table.Append("<td class=\"table-td table-item\">" + rd[1] + "</td>");
+                    table.Append("<td class=\"table-td table-item\">" + rd[2] + "</td>");
+                    table.Append("<td class=\"table-td table-item\">" + rd[3] + "</td>");
+                    
+                   
+
+                    table.Append("</tr>");
+                }
+
+            }
+            table.Append("</table>");
+            PlaceHolder2.Controls.Add(new Literal { Text = table.ToString() });
+            rd.Close();
         }   
     }
 }
