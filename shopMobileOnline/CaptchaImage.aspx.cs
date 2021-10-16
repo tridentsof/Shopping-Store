@@ -20,7 +20,7 @@ namespace shopMobileOnline
 
             // GenerateImage function return image of the provided text of provided size and color
             Session["CaptchaText"] = captchaText;
-            CI.GenerateImage(captchaText, 120, 50, Color.DarkGray, Color.White);
+            CI.GenerateImage(captchaText, 120, 50, Color.YellowGreen, Color.White);
 
             this.Response.Clear();
             this.Response.ContentType = "image/jpeg";

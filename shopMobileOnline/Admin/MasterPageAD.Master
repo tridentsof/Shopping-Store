@@ -448,9 +448,9 @@
                         <li class="sub" id="khuyemai">
                             <a href="#khuyemai" class="btn">Quản lí khuyến mãi <i class="fas fa-caret-down"></i></i></a>
                             <div class="smenu">
-                                <a href="QuanLyKMTheoMua.aspx">Khuyến mãi theo mùa</a>
-                                <a href="QuanLyKMLoai.aspx">Khuyến mãi theo loại</a>
-                                <a href="QuanLyKMNSX.aspx">Khuyến mãi nhà sản xuất</a> 
+                                <a href="QuanLyKMNSX.aspx">Khuyến mãi nhà sản xuất</a>
+                                <a href="QuanLyKMThemKM.aspx">Thêm mới đợt khuyến mãi</a>
+                                <a href="ThongKeKM.aspx">Thống kê khuyến mãi</a> 
                             </div>
                         </li>
                         <li class="sub" id="doanhthu">

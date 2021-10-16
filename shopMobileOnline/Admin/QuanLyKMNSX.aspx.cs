@@ -27,24 +27,45 @@ namespace shopMobileOnline.Admin
                 ddNSX.DataTextField = "TENNSX";
                 ddNSX.DataValueField = "ID_NSX";
                 ddNSX.DataBind();
+                
+
+                try
+                {
+                    SqlParameter[] p = { };
+                    DataTable dt = dataAccess.ExecuteQuery("GETKM", p);
+                    
+                    if(dt != null && dt.Rows.Count > 0)
+                    {
+                        this.ddKM.DataSource = dt;
+                        this.ddKM.DataTextField = "TENKM";
+                        this.ddKM.DataValueField = "MAKM";
+                        this.ddKM.DataBind();
+                    }
+                }
+                catch
+                {
+
+                }
                 dataAccess.DongKetNoiCSDL();
-                //ddlLoai.Items.Insert(0, new ListItem("---Chọn loại sản phẩm---", "-1"));
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             DataAccess dataAccess = new DataAccess();
+            //Cap nhat ty le khuyen mai
             try
             {
                 SqlParameter[] p =
                 {
                     new SqlParameter("@ID_NSX",SqlDbType.Int),
+                    new SqlParameter("@MAKM",SqlDbType.Int),
                     new SqlParameter("@PHANTRAMKHUYENMAI",SqlDbType.Int)
                 };
                 p[0].Value = ddNSX.SelectedValue;
-                p[1].Value = Int32.Parse(txtPhanTramKH.Text);
-                int a = dataAccess.ExecuteNonQuery("update_km_nsx", p);
+                p[1].Value = ddKM.SelectedValue;
+                p[2].Value = Int32.Parse(txtPhanTramKH.Text);
+                int a = dataAccess.ExecuteNonQuery("UPDATEKM", p);
                 if (a > 0)
                 {
                     Label1.Style.Add("display", "block");
@@ -61,6 +82,26 @@ namespace shopMobileOnline.Admin
             {
 
             }
+
+            //Them thong tin khuyen mai vao bang chi tiet khuyen mai
+            try
+            {
+                SqlParameter[] p =
+                {
+                    new SqlParameter("@ID_NSX",SqlDbType.Int),
+                    new SqlParameter("@MAKM",SqlDbType.Int),
+                    new SqlParameter("@PHANTRAMKHUYENMAI",SqlDbType.Int)
+                };
+                p[0].Value = ddNSX.SelectedValue;
+                p[1].Value = ddKM.SelectedValue;
+                p[2].Value = Int32.Parse(txtPhanTramKH.Text);
+                int a = dataAccess.ExecuteNonQuery("INSERT_CHITIETKM", p);
+            }
+            catch
+            {
+
+            }
+            dataAccess.DongKetNoiCSDL();
         }
     }
 }
