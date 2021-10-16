@@ -17,10 +17,15 @@ namespace shopMobileOnline.Admin
             {
                 Response.Redirect("ADLogin.aspx");
             }
+           
+        }
+
+        protected void btnTim_Click(object sender, EventArgs e)
+        {
             DataAccess dataAccess = new DataAccess();
             dataAccess.MoKetNoiCSDL();
 
-            string sqlDHChoDuyet = "SELECT TENSP,SOLUONG_DABAN,DONGIA FrOM SANPHAM WHERE SOLUONG_DABAN>3 AND TINHTRANG=1";
+            string sqlDHChoDuyet = "SELECT TENSP,SOLUONG_DABAN,DONGIA FrOM SANPHAM WHERE SOLUONG_DABAN>'" + Int32.Parse(TextBox1.Text) + "' AND TINHTRANG=1";
 
             DataTable dtDHChoDuyet = dataAccess.LayBangDuLieu(sqlDHChoDuyet);
 
