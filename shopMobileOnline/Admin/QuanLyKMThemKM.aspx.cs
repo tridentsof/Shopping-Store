@@ -33,7 +33,6 @@ namespace shopMobileOnline.Admin
                         new SqlParameter("@NGAYBD",SqlDbType.Date),
                         new SqlParameter("@NGAYKT",SqlDbType.Date),
                  };
-
                 p[0].Value = txtTenKM.Text;
                 p[1].Value = Convert.ToDateTime(txtNgayBD.Text);
                 p[2].Value = Convert.ToDateTime(txtNgayKT.Text);

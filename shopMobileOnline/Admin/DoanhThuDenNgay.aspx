@@ -6,10 +6,8 @@
             flex-direction: column;
             align-items: center;
             padding: 50px 0;
-        }
-
         
-
+        }
         .section-thongKe {
             width: 60%;
             display: flex;
@@ -74,7 +72,8 @@
         .table {
             width: 100%;
             margin-left: auto;
-            margin-right:auto
+            margin-right:auto;
+
         }
         .table1 {
             width: 100%;
@@ -187,7 +186,7 @@
             background: transparent;
             transition: border-color 0.2s;
             color: #B2D426;
-            width: 50%;
+            width: 40%;
             text-align: center;
             border-color: yellowgreen;
         }
@@ -202,7 +201,7 @@
             transition: 0.25s;
             display: block;  
             border-radius: 2px;
-            margin-left: 34%;
+            margin-left: 40%;
             outline: none;
             border: none;
         }
@@ -230,35 +229,49 @@
             margin-top: 70px;
         }
         .auto-style2 {
-        width: 334px;
-        height: 191px;
+        width: 500px;
+        height: 300px;
         border: 1px solid yellowgreen;
         margin-left: auto;
         margin-right: auto;
         margin-top: 5%;
         text-align: center;
+        transition:1s;
     }
+        .auto-style2:hover{
+             box-shadow: 2px 4px 10px #B2D426;
+        }
+          .p-discount{
+            color: rgb(141, 141, 141);
+        }
+        .p-percent{
+            margin-top: 5%;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="auto-style2">
         <p class="content-sum">Nhập tháng cần thống kê</p>
-         <asp:TextBox CssClass="input-percent" ID="TextBox1" runat="server"></asp:TextBox>
-         <asp:TextBox CssClass="input-percent" ID="TextBox2" runat="server"></asp:TextBox>
+       <p class="p-discount p-percent">Chọn ngày bắt đầu</p>
+            <asp:TextBox ID="txtNgayBD" CssClass="input-percent" TextMode="Date" runat="server"></asp:TextBox>
+            <p class="p-discount p-percent">Chọn ngày kết thúc</p>
+            <asp:TextBox ID="txtNgayKT" CssClass="input-percent" TextMode="Date" runat="server"></asp:TextBox>
          <asp:Button ID="Button1"  runat="server" Text="Thống kê" CssClass="button-active" OnClick="btnTim_Click" Height="26px" />
     </div>
-    <div class="adtrangchu-container">
+    <div class="adtrangchu-container" id="an">
          <section class="section-thongKe">
             <div class="auto-style1">
                 <p class="section-item-header header-choDuyet">Doanh Thu Theo Từng Tháng</p>
-                <table class="table" border="1">
+                <table runat="server" class="table" border="1" id="table1">
                 <tr  class="table-tr" >
-                    <th class="table-th" style="max-width:40px">Tên Sản Phẩm</th>
+                    <th class="table-th" style="max-width:80px">Tên Sản Phẩm</th>
                     <th class="table-th">Tổng Doanh Thu</th>
                     <%--<th class="table-th"  style="min-width: 80px">Xem</th>--%>
                 </tr>
                 <asp:Panel ID="Panel1" runat="server"></asp:Panel>
             </table>
             </div>
+             </section>
+        </div>
 </asp:Content>
 

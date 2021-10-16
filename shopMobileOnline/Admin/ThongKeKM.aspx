@@ -87,24 +87,24 @@
             color: #0654a9;
             transition : all 0.1s ease-in;
         }
-        .qltk-btnCapNhat {
+        .qlkm-btnCapNhat {
             color: #0654a9;
             font-weight: bold;
             font-size: 14px;
             text-align: center;
             display: block;
         }
-        .qltk-btnCapNhat:hover{
+        .qlkm-btnCapNhat:hover{
             color: #0094ff;
         }
-        .qltk-btnXoa {
+        .qlkm-btnXoa {
             color: tomato;
             font-weight: bold;
             text-align: center;
             display: block;
             font-size: 14px;
         }
-        .qltk-btnXoa:hover{
+        .qlkm-btnXoa:hover{
             color: #f62d2d;
         }
     </style>
@@ -122,12 +122,14 @@
         </div>
         <table class="table" border="1">
             <tr  class="table-tr">
+                 <th class="table-th">ID</th>
                 <th class="table-th">Tên khuyến mãi</th>
                 <th class="table-th">NSX</th>
-                <th class="table-th">Phần trăm khuyến mãi</th>
+                <th class="table-th" style="max-width:80px;">Phần trăm khuyến mãi</th>
                 <th class="table-th">Trạng thái</th>
+                <th class="table-th">Cập nhật</th>
             </tr>
-        <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+              <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
         </table>
 
     </div>
