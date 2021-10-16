@@ -3,7 +3,7 @@
     <style>
         .container-discount{
             width: 970px;
-            height: 570px;
+            height: 560px;
             background-color: white;
             box-shadow: 0 3px 10px 0 rgb(0 0 0 / 14%);
             margin-left: auto;
@@ -25,7 +25,7 @@
         .discount-wrapper{
             background-color: white;
             display: inline-block;
-            height: 300px;
+            height: 350px;
             width: 700px;
             margin-left: 30px;
             margin-top: 7%;
@@ -113,6 +113,10 @@
             <p class="p-discount p-type">Chọn nhà sản xuất:</p>
             <div class="edit-container">
                 <asp:DropDownList CssClass="edit-container" ID="ddNSX" runat="server"></asp:DropDownList>
+            </div>
+            <p class="p-discount p-type">Chọn đợt khuyến mãi:</p>
+            <div class="edit-container">
+                <asp:DropDownList CssClass="edit-container" ID="ddKM" runat="server"></asp:DropDownList>
             </div>
             <p class="p-discount p-percent">Nhập phần trăm khuyến mãi</p>
             <asp:TextBox CssClass="input-percent" ID="txtPhanTramKH" runat="server"></asp:TextBox><br /> 
