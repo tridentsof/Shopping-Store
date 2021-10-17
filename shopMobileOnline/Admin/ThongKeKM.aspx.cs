@@ -25,7 +25,7 @@ namespace shopMobileOnline.Admin
             dataAccess.MoKetNoiCSDL();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT KHUYENMAI.TENKM,CHITIETKM.ID_NSX,CHITIETKM.PHANTRAMKHUYENMAI,CASE CHITIETKM.TRANGTHAI WHEN 1 THEN N'Mở' WHEN 0 THEN N'Đóng' END AS TINHTRANG FROM KHUYENMAI, CHITIETKM, NHASANXUAT WHERE CHITIETKM.MAKM = KHUYENMAI.MAKM AND NHASANXUAT.ID_NSX = CHITIETKM.ID_NSX ";
+            cmd.CommandText = "SELECT CHITIETKM.MAKM, KHUYENMAI.TENKM,CHITIETKM.ID_NSX,CHITIETKM.PHANTRAMKHUYENMAI,CASE CHITIETKM.TRANGTHAI WHEN '1' THEN N'Mở' WHEN '0' THEN N'Đóng' END AS TINHTRANG,'TrangCapNhatKM.aspx?id='+CAST(CHITIETKM.MAKM AS NVARCHAR) AS CAPNHAT, 'TrangXoaKM.aspx?id='+CAST(KHUYENMAI.MAKM AS NVARCHAR) AS XOA FROM KHUYENMAI, CHITIETKM, NHASANXUAT WHERE CHITIETKM.MAKM = KHUYENMAI.MAKM AND NHASANXUAT.ID_NSX = CHITIETKM.ID_NSX ";
 
 
             cmd.Connection = dataAccess.getConnection();
@@ -42,9 +42,8 @@ namespace shopMobileOnline.Admin
                     table.Append("<td class=\"table-td table-item\">" + rd[1] + "</td>");
                     table.Append("<td class=\"table-td table-item\">" + rd[2] + "</td>");
                     table.Append("<td class=\"table-td table-item\">" + rd[3] + "</td>");
-                    
-                   
-
+                    table.Append("<td class=\"table-td table-item\">" + rd[4] + "</td>");
+                    table.Append("<td class=\"table-td table-item\"><a href=\"/Admin/" + rd[5] + "\" class=\"qlkm-btnCapNhat\">Cập nhật</a> </td>");
                     table.Append("</tr>");
                 }
 

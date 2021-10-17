@@ -23,7 +23,7 @@ namespace shopMobileOnline.Admin
         {
             DataAccess dataAccess = new DataAccess();
             dataAccess.MoKetNoiCSDL();
-            string sqlDHChoDuyet = "SELECT TENSP,SUM(DOANHTHU) as DOANHTHU FROM  (SELECT  c.TENSP,(c.DONGIA*b.SOLUONG) as doanhthu FROM DONHANG a,CTDONHANG b,SANPHAM c WHERE a.ID_DONHANG=b.ID_DONHANG and b.ID_SP=c.ID_SP and a.TRANGTHAI=3 and a.NGAYDH  BETWEEN '"  + TextBox1.Text  + "' AND'" + TextBox2.Text + "' group by NGAYDH,TENSP,c.DONGIA,b.SOLUONG) a GROUP BY TENSP";
+            string sqlDHChoDuyet = "SELECT TENSP,SUM(DOANHTHU) as DOANHTHU FROM  (SELECT  c.TENSP,(c.DONGIA*b.SOLUONG) as doanhthu FROM DONHANG a,CTDONHANG b,SANPHAM c WHERE a.ID_DONHANG=b.ID_DONHANG and b.ID_SP=c.ID_SP and a.TRANGTHAI=3 and a.NGAYDH  BETWEEN '"  + txtNgayBD.Text  + "' AND'" +txtNgayKT.Text + "' group by NGAYDH,TENSP,c.DONGIA,b.SOLUONG) a GROUP BY TENSP";
           
             DataTable dtDHChoDuyet = dataAccess.LayBangDuLieu(sqlDHChoDuyet);
 
