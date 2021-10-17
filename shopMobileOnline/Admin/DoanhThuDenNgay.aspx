@@ -262,7 +262,7 @@
          <section class="section-thongKe">
             <div class="auto-style1">
                 <p class="section-item-header header-choDuyet">Doanh Thu Theo Từng Tháng</p>
-                <table runat="server" class="table" border="1" id="table1">
+                <table class="table" border="1" id="table1">
                 <tr  class="table-tr" >
                     <th class="table-th" style="max-width:80px">Tên Sản Phẩm</th>
                     <th class="table-th">Tổng Doanh Thu</th>
