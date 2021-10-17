@@ -105,6 +105,7 @@ namespace shopMobileOnline.Admin
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@MAKM", id);
+            cmd.Parameters.AddWithValue("@PHANTRAM", txtPhanTramKM.Text);
             int a = cmd.ExecuteNonQuery();
 
             if (a > 0)
