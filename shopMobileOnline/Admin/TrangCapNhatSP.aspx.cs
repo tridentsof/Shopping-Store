@@ -53,7 +53,6 @@ namespace shopMobileOnline.Admin
                     //Tao command de lay du lieu tu dtb
                     SqlCommand cmdNSX = new SqlCommand(sqlNSX, dataAccess.getConnection());
                     SqlCommand cmdLoai = new SqlCommand(sqlLoai, dataAccess.getConnection());
-                    SqlCommand cmdKM = new SqlCommand(sqlKM, dataAccess.getConnection()); 
                     //ket noi link anh cho img (ImageUrl="~/Uploads/ip11.jpg") 
                     imgSP.ImageUrl = "~/Uploads/" + dtSP.Rows[0]["HINH"].ToString();
 
