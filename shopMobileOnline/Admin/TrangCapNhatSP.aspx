@@ -299,7 +299,7 @@
             </asp:TableRow>
             <asp:TableRow runat="server">
                 <asp:TableCell runat="server">
-                    Giá tiền <span class="dauSao">(*)</span>
+                    Giá gốc <span class="dauSao">(*)</span>
                 </asp:TableCell>
                 <asp:TableCell runat="server">
                     <asp:TextBox ID="txtGia" TextMode="Number" runat="server"></asp:TextBox>
@@ -308,15 +308,29 @@
                     <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Giá tiền phải lớn hơn hoặc bằng 0" ControlToValidate="txtGia" ValueToCompare="0" Type="Integer" Operator="GreaterThanEqual" CssClass="cnsp-error" Display="Dynamic"></asp:CompareValidator>
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell runat="server">
+                    Phần Trăm Khuyến Mãi 
+                </asp:TableCell>
+                <asp:TableCell runat="server">
+                    <asp:TextBox ID="txtPhanTram" TextMode="Number" runat="server"></asp:TextBox>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Phần Trăm Khuyến Mãi Không Được Để trống" ControlToValidate="txtPhanTram" CssClass="cnsp-error" Display="Dynamic"></asp:RequiredFieldValidator>
+                     <asp:RangeValidator ID="RangeValidator1" ControlToValidate="txtPhanTram" runat="server" 
+                                     ErrorMessage="Giá trị phải trong khoảng từ 0-100"  
+                                     MinimumValue="0"
+                                     MaximumValue="100"
+                                     Type="Integer"
+                                      CssClass="error">
+                           </asp:RangeValidator>
+                </asp:TableCell>
+            </asp:TableRow>
             <asp:TableRow runat="server">
                 <asp:TableCell runat="server">
                     Số lượng đã bán
                 </asp:TableCell>
                 <asp:TableCell runat="server">
                     <asp:TextBox ID="txtSLDaBan" TextMode="Number" runat="server"></asp:TextBox>
-
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Số lượng đã bán phải lớn hơn hoặc bằng 0" ControlToValidate="txtSLDaBan" ValueToCompare="0" Type="Integer" Operator="GreaterThanEqual" CssClass="cnsp-error" Display="Dynamic"></asp:CompareValidator>
-
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow runat="server">

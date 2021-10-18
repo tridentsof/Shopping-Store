@@ -36,10 +36,11 @@ namespace shopMobileOnline.Admin
                 DataAccess dataAccess = new DataAccess();
 
                 //sql doc du lieu tu dtb
-                string sqlSP = "SELECT [SANPHAM].ID_SP, [SANPHAM].ID_NSX, [SANPHAM].ID_LOAI, TENNSX, TENLOAI, TENSP, MANHINH, CAMERASAU, CAMERATRUOC, CPU, BONHO, KETNOI, PIN,HINH, SOLUONG, DONGIA, SOLUONG_DABAN, TINHTRANG FROM [SANPHAM], [NHASANXUAT], [LOAI] WHERE [SANPHAM].ID_NSX = [NHASANXUAT].ID_NSX AND [SANPHAM].ID_LOAI = [LOAI].ID_LOAI AND [SANPHAM].ID_SP = '" + idSP + "'";
+                string sqlSP = "SELECT [SANPHAM].ID_SP, [SANPHAM].ID_NSX, [SANPHAM].ID_LOAI, TENNSX, TENLOAI, TENSP, MANHINH, CAMERASAU, CAMERATRUOC, CPU, BONHO, KETNOI, PIN,HINH, SOLUONG, DONGIA, SOLUONG_DABAN, TINHTRANG,PHANTRAMKHUYENMAI FROM [SANPHAM], [NHASANXUAT], [LOAI] WHERE [SANPHAM].ID_NSX = [NHASANXUAT].ID_NSX AND [SANPHAM].ID_LOAI = [LOAI].ID_LOAI AND [SANPHAM].ID_SP = '" + idSP + "'";
                 string sqlNSX = "SELECT * FROM NHASANXUAT";
                 string sqlLoai = "SELECT * FROM LOAI";
-
+                string sqlKM = "SELECT * FROM CHITIETKM";
+                string sqlKM2 = "SELECT * FROM KHUYENMAI";
                 dataAccess.MoKetNoiCSDL();
 
                 DataTable dtSP = dataAccess.LayBangDuLieu(sqlSP);
@@ -52,7 +53,6 @@ namespace shopMobileOnline.Admin
                     //Tao command de lay du lieu tu dtb
                     SqlCommand cmdNSX = new SqlCommand(sqlNSX, dataAccess.getConnection());
                     SqlCommand cmdLoai = new SqlCommand(sqlLoai, dataAccess.getConnection());
-
                     //ket noi link anh cho img (ImageUrl="~/Uploads/ip11.jpg") 
                     imgSP.ImageUrl = "~/Uploads/" + dtSP.Rows[0]["HINH"].ToString();
 
@@ -81,7 +81,7 @@ namespace shopMobileOnline.Admin
                     txtCPU.Text = dtSP.Rows[0]["CPU"].ToString();
                     txtBoNho.Text = dtSP.Rows[0]["BONHO"].ToString();
                     txtKetNoi.Text = dtSP.Rows[0]["KETNOI"].ToString();
-                    txtPin.Text = dtSP.Rows[0]["PIN"].ToString();
+                    txtPin.Text = dtSP.Rows[0]["PIN"].ToString();  
                     if(dtSP.Rows[0]["HINH"].ToString() != "")
                     {
                         FileUpload1.ToolTip = "Ảnh đã lưu trước đó: " + dtSP.Rows[0]["HINH"].ToString();
@@ -93,6 +93,7 @@ namespace shopMobileOnline.Admin
 
                     txtSoLuong.Text = dtSP.Rows[0]["SOLUONG"].ToString();
                     txtGia.Text = dtSP.Rows[0]["DONGIA"].ToString();
+                    txtPhanTram.Text= dtSP.Rows[0]["PHANTRAMKHUYENMAI"].ToString();
                     txtSLDaBan.Text = dtSP.Rows[0]["SOLUONG_DABAN"].ToString();
                 }
 
@@ -137,6 +138,7 @@ namespace shopMobileOnline.Admin
                 imgSql +
                 "SOLUONG = " + int.Parse(txtSoLuong.Text) + "," +
                 "DONGIA = " + int.Parse(txtGia.Text) + "," +
+                "PHANTRAMKHUYENMAI = " + int.Parse(txtPhanTram.Text) + "," +
                 "SOLUONG_DABAN = '" + int.Parse(txtSLDaBan.Text) + "'," +
                 "TINHTRANG = " + rblTinhTrang.SelectedValue + " " +
                 "WHERE ID_SP = " + int.Parse(idSP);
