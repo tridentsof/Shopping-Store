@@ -168,7 +168,32 @@
         #btn-xemThem:hover {
             background: #B2D426;
         }
-        
+        .ribbon {
+            margin-top:-30px;
+            margin-left:194px;
+            width: 110px;
+            height: 110px;
+            display: block;
+            position: absolute;
+            overflow: hidden;
+            z-index:100;
+        }
+         .ribbon .lbKM {
+            width: 150px;
+            height: 34px;
+            top: 20px;
+            right: -40px;
+            position: absolute;
+            display: block;
+            background: #FF0000;
+            color: #333;
+            font-family: arial;
+            font-size: 18px;
+            color:white;
+            text-align: center;
+            line-height: 34px;
+            transform: rotate(45deg);
+         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -203,6 +228,9 @@
         <asp:Repeater ID="rptItem" runat="server">
             <ItemTemplate>
                 <div class="listsp-item">
+                    <div runat="server" class="ribbon">
+                        <asp:Label ID="Label1" runat="server" CssClass="lbKM" Text=""><%# Eval("PHANTRAMKHUYENMAI") %>%</asp:Label>
+                       </div>
                     <a href="TrangChiTietSP.aspx?idSP=<%# Eval("ID_SP") %>">
                         <img alt="phone-img" src="../Uploads/<%# Eval("HINH") %>" class="listsp-img" />
                         <p class="item-ten">
