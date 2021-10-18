@@ -44,7 +44,7 @@ namespace shopMobileOnline.admin
                 lbBoNho.Text = dt.Rows[0]["BONHO"].ToString();
                 lbKetNoi.Text = dt.Rows[0]["KETNOI"].ToString();
                 lbPin.Text = dt.Rows[0]["PIN"].ToString();
-
+                lbGia_goc.Text = String.Format("{0:N0}", dt.Rows[0]["DONGIA"]) + " VND";
                 imgSP.ImageUrl = "~/Uploads/" + dt.Rows[0]["HINH"].ToString();
 
                 
@@ -57,6 +57,7 @@ namespace shopMobileOnline.admin
                     cart.Columns.Add("Hinh");
                     cart.Columns.Add("Ten");
                     cart.Columns.Add("Gia");
+                    cart.Columns.Add("giagoc");
                     cart.Columns.Add("SoLuong");
 
                     //Sau khi tạo xong thì lưu lại vào session

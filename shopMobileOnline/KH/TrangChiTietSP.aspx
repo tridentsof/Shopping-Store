@@ -160,6 +160,21 @@
             display: block;
             margin-top: 5px;
         }
+        .sale{
+            font-size: 20px;
+            color: red;
+            animation: sale1 1s infinite;
+            transition: 1s;
+            margin-left: 15px;
+        }
+        @keyframes sale1 {
+            0%{font-size: 20px; color: #B2D426 }
+            100% {
+                font-size: 25px; color: #e74c3c;
+            }
+                                     
+                                 
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -220,10 +235,18 @@
                             <div class="item-head-content">
 
                                 <p>
-                                    Giá:
+                                    Giá gốc:
                                 </p>
-                                <asp:Label ID="lbGia" runat="server" Text="" CssClass="ctsp price"></asp:Label>
+                                <asp:Label ID="lbGia_goc" runat="server" Text="" CssClass="ctsp price"></asp:Label>
                             </div>
+                            <div class="item-head-content">
+
+                                <p>
+                                    Giá khuyến mãi:
+                                </p>
+                                <asp:Label ID="lbGia" runat="server" Text="" CssClass="ctsp price"></asp:Label> <p class="sale">sale</p>
+                            </div>
+                            
 
                         </div>
                     </div>
