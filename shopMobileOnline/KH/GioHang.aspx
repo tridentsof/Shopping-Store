@@ -65,7 +65,7 @@
         .left, .left1 {
             height: auto;
             //position: relative;
-            width: 500px;
+            width: 450px;
             
         }
         .left a:first-child {
@@ -111,12 +111,13 @@
 
         .right {
             //position: relative;
+            width: 200px;
         }
 
             .right p {
                 color: #B2D426;
                 margin-left: 35px;
-                padding-top: 15px;
+                padding-top:  5px;
                 font-size: 18px;
                 text-align: center;
                 font-weight: 500;
@@ -325,6 +326,10 @@
             margin: 20px;
             color: tomato
         }
+        .price{
+            display: flex;
+
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -352,16 +357,16 @@
                                     <asp:LinkButton ID="btnXoaItem" runat="server" CssClass="btnXoa" OnClick="btnXoaItem_Click"><i class="far fa-times-circle"></i></asp:LinkButton>
                                 </td>
                                 <td class="right">
-                                    <p><%# Eval("Gia","{0:n0}") %></p>
-                                    <!--<ul>
-                                        <li>
-                                            <asp:Button ID="btnTru" runat="server" Style="width: 30px; color: blue" Text="-" /></li>
-                                        <li>
-                                            <asp:TextBox ID="txtSL" runat="server" Style="width: 30px;" Text=""></asp:TextBox></li>
-                                        <li>
-                                            <asp:Button ID="btnCong" runat="server" Style="width: 30px; color: blue" Text="+" /></li>
-                                    </ul>
-                                    -->
+                                    <div style="margin-bottom: 10px;">
+                                        <p style="color: #34495e;font-size:16px; margin: 0px;">Giá gốc: </p>
+                                        <p style="margin: 0px; font-size: 20px;"> <%# Eval("giagoc","{0:n0}") %></p>
+                                    </div>
+                                    <div>
+                                        <p style="color: #34495e;font-size:16px; margin: 0px;">Giá khuyến mãi: </p>
+                                        <p style="margin: 0px; font-size: 20px;color:#e74c3c;"> <%# Eval("Gia","{0:n0}") %></p>
+                                    </div>
+                                    
+                                    
                                     <asp:Label ID="lbSL" runat="server" Text=""></asp:Label>
                                 </td>
                             </tr>
